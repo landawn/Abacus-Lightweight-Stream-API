@@ -323,29 +323,37 @@ public final class EntryStream<K, V> {
 
     /**
      * 
-     * @param classifier
-     * @param downstream
-     * @param mapFactory
      * @return
-     * @see Collectors#groupingBy(Function, Collector, Supplier)
      */
-    public <KK, A, D> EntryStream<KK, D> groupBy(final Function<? super Map.Entry<K, V>, ? extends KK> classifier,
-            final Collector<? super Map.Entry<K, V>, A, D> downstream) {
+    public Map<K, List<V>> groupTo() {
+        final Function<? super Map.Entry<K, V>, K> classifier = Fn.key();
+        final Function<? super Map.Entry<K, V>, V> valueMapper = Fn.value();
+        final Collector<Entry<K, V>, ?, List<V>> downstream = Collectors.mapping(valueMapper, Collectors.<V> toList());
 
-        return of(s.groupBy(classifier, downstream));
+        return s.groupTo(classifier, downstream);
     }
 
     /**
      * 
-     * @param classifier
      * @param downstream
      * @return
-     * @see Collectors#groupingBy(Function, Collector)
      */
-    public <KK, A, D> EntryStream<KK, D> groupBy(final Function<? super Map.Entry<K, V>, ? extends KK> classifier,
-            final Collector<? super Map.Entry<K, V>, A, D> downstream, final Supplier<Map<KK, D>> mapFactory) {
+    public <A, D> Map<K, D> groupTo(final Collector<? super Map.Entry<K, V>, A, D> downstream) {
+        final Function<? super Map.Entry<K, V>, K> classifier = Fn.key();
 
-        return of(s.groupBy(classifier, downstream, mapFactory));
+        return s.groupTo(classifier, downstream);
+    }
+
+    /**
+     * 
+     * @param downstream
+     * @param mapFactory
+     * @return
+     */
+    public <D, A, M extends Map<K, D>> M groupTo(final Collector<? super Map.Entry<K, V>, A, D> downstream, final Supplier<M> mapFactory) {
+        final Function<? super Map.Entry<K, V>, K> classifier = Fn.key();
+
+        return s.groupTo(classifier, downstream, mapFactory);
     }
 
     public EntryStream<K, V> sorted(final Comparator<? super Map.Entry<K, V>> comparator) {

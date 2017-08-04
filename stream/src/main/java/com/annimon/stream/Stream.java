@@ -832,6 +832,19 @@ public class Stream<T> implements Closeable {
         return groupBy(classifier2, downstream, mapFactory).mapToEntry(mapper);
     }
 
+    public <K> Map<K, List<T>> groupTo(final Function<? super T, ? extends K> classifier) {
+        return collect(Collectors.<T, K> groupingBy(classifier));
+    }
+
+    public <K, A, D> Map<K, D> groupTo(Function<? super T, ? extends K> classifier, Collector<? super T, A, D> downstream) {
+        return collect(Collectors.groupingBy(classifier, downstream));
+    }
+
+    public <K, D, A, M extends Map<K, D>> M groupTo(final Function<? super T, ? extends K> classifier, final Collector<? super T, A, D> downstream,
+            final Supplier<M> mapFactory) {
+        return collect(Collectors.groupingBy(classifier, downstream, mapFactory));
+    }
+
     /**
      * Partitions {@code Stream} into {@code List}s according to the given classifier function. In contrast
      * to {@link #groupBy(Function)}, this method assumes that the elements of the stream are sorted.
