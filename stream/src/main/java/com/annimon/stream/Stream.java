@@ -46,6 +46,8 @@ import com.annimon.stream.operator.ObjTakeWhile;
 import com.annimon.stream.operator.ObjZip;
 import com.landawn.abacus.util.Comparators;
 import com.landawn.abacus.util.Fn;
+import com.landawn.abacus.util.Indexed;
+import com.landawn.abacus.util.N;
 import com.landawn.abacus.util.Optional;
 import com.landawn.abacus.util.function.BiConsumer;
 import com.landawn.abacus.util.function.BiFunction;
@@ -59,6 +61,8 @@ import com.landawn.abacus.util.function.ToDoubleFunction;
 import com.landawn.abacus.util.function.ToIntFunction;
 import com.landawn.abacus.util.function.ToLongFunction;
 import com.landawn.abacus.util.function.UnaryOperator;
+import com.landawn.abacus.util.stream.Collector;
+import com.landawn.abacus.util.stream.Collectors;
 
 /**
  * A sequence of elements supporting aggregate operations.
@@ -159,7 +163,7 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code iterator} is null
      */
     public static <T> Stream<T> of(Iterator<? extends T> iterator) {
-        Objects.requireNonNull(iterator);
+        N.requireNonNull(iterator);
         return new Stream<>(iterator);
     }
 
@@ -172,7 +176,7 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code supplier} is null
      */
     public static <T> Stream<T> generate(final Supplier<T> supplier) {
-        Objects.requireNonNull(supplier);
+        N.requireNonNull(supplier);
         return new Stream<>(new ObjGenerate<>(supplier));
     }
 
@@ -195,7 +199,7 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code op} is null
      */
     public static <T> Stream<T> iterate(final T seed, final UnaryOperator<T> op) {
-        Objects.requireNonNull(op);
+        N.requireNonNull(op);
         return new Stream<>(new ObjIterate<>(seed, op));
     }
 
@@ -220,7 +224,7 @@ public class Stream<T> implements Closeable {
      * @since 1.1.5
      */
     public static <T> Stream<T> iterate(final T seed, final Predicate<? super T> predicate, final UnaryOperator<T> op) {
-        Objects.requireNonNull(predicate);
+        N.requireNonNull(predicate);
         return iterate(seed, op).takeWhile(predicate);
     }
 
@@ -241,8 +245,8 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code stream1} or {@code stream2} is null
      */
     public static <T> Stream<T> concat(Stream<? extends T> stream1, Stream<? extends T> stream2) {
-        Objects.requireNonNull(stream1);
-        Objects.requireNonNull(stream2);
+        N.requireNonNull(stream1);
+        N.requireNonNull(stream2);
         @SuppressWarnings("resource")
         Stream<T> result = new Stream<>(new ObjConcat<>(stream1.iterator, stream2.iterator));
         return result.onClose(Compose.closeables(stream1, stream2));
@@ -266,8 +270,8 @@ public class Stream<T> implements Closeable {
      * @since 1.1.9
      */
     public static <T> Stream<T> concat(Iterator<? extends T> iterator1, Iterator<? extends T> iterator2) {
-        Objects.requireNonNull(iterator1);
-        Objects.requireNonNull(iterator2);
+        N.requireNonNull(iterator1);
+        N.requireNonNull(iterator2);
         return new Stream<>(new ObjConcat<>(iterator1, iterator2));
     }
 
@@ -293,8 +297,8 @@ public class Stream<T> implements Closeable {
      */
     public static <F, S, R> Stream<R> zip(Stream<? extends F> stream1, Stream<? extends S> stream2,
             final BiFunction<? super F, ? super S, ? extends R> combiner) {
-        Objects.requireNonNull(stream1);
-        Objects.requireNonNull(stream2);
+        N.requireNonNull(stream1);
+        N.requireNonNull(stream2);
         return Stream.<F, S, R> zip(stream1.iterator, stream2.iterator, combiner);
     }
 
@@ -321,8 +325,8 @@ public class Stream<T> implements Closeable {
      */
     public static <F, S, R> Stream<R> zip(final Iterator<? extends F> iterator1, final Iterator<? extends S> iterator2,
             final BiFunction<? super F, ? super S, ? extends R> combiner) {
-        Objects.requireNonNull(iterator1);
-        Objects.requireNonNull(iterator2);
+        N.requireNonNull(iterator1);
+        N.requireNonNull(iterator2);
         return new Stream<>(new ObjZip<>(iterator1, iterator2, combiner));
     }
 
@@ -355,8 +359,8 @@ public class Stream<T> implements Closeable {
      */
     public static <T> Stream<T> merge(Stream<? extends T> stream1, Stream<? extends T> stream2,
             BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
-        Objects.requireNonNull(stream1);
-        Objects.requireNonNull(stream2);
+        N.requireNonNull(stream1);
+        N.requireNonNull(stream2);
         return Stream.<T> merge(stream1.iterator, stream2.iterator, selector);
     }
 
@@ -389,8 +393,8 @@ public class Stream<T> implements Closeable {
      */
     public static <T> Stream<T> merge(Iterator<? extends T> iterator1, Iterator<? extends T> iterator2,
             BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
-        Objects.requireNonNull(iterator1);
-        Objects.requireNonNull(iterator2);
+        N.requireNonNull(iterator1);
+        N.requireNonNull(iterator2);
         return new Stream<>(new ObjMerge<>(iterator1, iterator2, selector));
     }
 
@@ -659,7 +663,7 @@ public class Stream<T> implements Closeable {
 
             @Override
             public Indexed<T> apply(T t) {
-                return new Indexed<>(index++, t);
+                return Indexed.of(t, index++);
             }
         });
     }
@@ -949,7 +953,7 @@ public class Stream<T> implements Closeable {
      * @since 1.1.6
      */
     public Stream<T> scan(final BiFunction<T, T, T> accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new Stream<>(params, new ObjScan<>(iterator, accumulator));
     }
 
@@ -977,7 +981,7 @@ public class Stream<T> implements Closeable {
      * @since 1.1.6
      */
     public <R> Stream<R> scan(final R identity, final BiFunction<? super R, ? super T, ? extends R> accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new Stream<>(params, new ObjScanIdentity<>(iterator, identity, accumulator));
     }
 
@@ -1353,7 +1357,7 @@ public class Stream<T> implements Closeable {
         }
         if (collector.finisher() != null)
             return collector.finisher().apply(container);
-        return Collectors.<A, R> castIdentity().apply(container);
+        return ((Function<A, R>) castIdentity()).apply(container);
     }
 
     /**
@@ -1446,7 +1450,9 @@ public class Stream<T> implements Closeable {
      * @see Collectors#toMap(Function)
      */
     public <K> Map<K, T> toMap(final Function<? super T, ? extends K> keyMapper) {
-        return collect(Collectors.toMap(keyMapper));
+        final Function<T, T> valueMapper = Fn.identity();
+
+        return collect(Collectors.toMap(keyMapper, valueMapper));
     }
 
     /**
@@ -1530,7 +1536,7 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code function} is null
      */
     public <R> R chain(Function<Stream<T>, R> function) {
-        Objects.requireNonNull(function);
+        N.requireNonNull(function);
         return function.apply(this);
     }
 
@@ -1544,7 +1550,7 @@ public class Stream<T> implements Closeable {
      * @since 1.1.8
      */
     public Stream<T> onClose(final Runnable closeHandler) {
-        Objects.requireNonNull(closeHandler);
+        N.requireNonNull(closeHandler);
         final Params newParams;
         if (params == null) {
             newParams = new Params();
@@ -1572,6 +1578,17 @@ public class Stream<T> implements Closeable {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    static <A, R> Function<A, R> castIdentity() {
+        return new Function<A, R>() {
+
+            @Override
+            public R apply(A value) {
+                return (R) value;
+            }
+        };
+    }
+
     /**
      * Returns a {@code BinaryOperator} which returns lesser of two elements
      * according to the specified {@code Comparator}.
@@ -1583,7 +1600,7 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if the argument is null
      */
     static <T> BinaryOperator<T> minBy(final Comparator<? super T> comparator) {
-        Objects.requireNonNull(comparator);
+        N.requireNonNull(comparator);
         return new BinaryOperator<T>() {
             @Override
             public T apply(T a, T b) {
@@ -1603,7 +1620,7 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if the argument is null
      */
     static <T> BinaryOperator<T> maxBy(final Comparator<? super T> comparator) {
-        Objects.requireNonNull(comparator);
+        N.requireNonNull(comparator);
         return new BinaryOperator<T>() {
             @Override
             public T apply(T a, T b) {

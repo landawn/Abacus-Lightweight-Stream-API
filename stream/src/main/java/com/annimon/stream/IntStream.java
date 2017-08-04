@@ -29,6 +29,7 @@ import com.annimon.stream.operator.IntSkip;
 import com.annimon.stream.operator.IntSorted;
 import com.annimon.stream.operator.IntTakeUntil;
 import com.annimon.stream.operator.IntTakeWhile;
+import com.landawn.abacus.util.N;
 import com.landawn.abacus.util.OptionalDouble;
 import com.landawn.abacus.util.OptionalInt;
 import com.landawn.abacus.util.function.Function;
@@ -72,7 +73,7 @@ public final class IntStream implements Closeable {
      * @throws NullPointerException if {@code values} is null
      */
     public static IntStream of(final int... values) {
-        Objects.requireNonNull(values);
+        N.requireNonNull(values);
         if (values.length == 0) {
             return IntStream.empty();
         }
@@ -87,7 +88,7 @@ public final class IntStream implements Closeable {
      * @throws NullPointerException if {@code iterator} is null
      */
     public static IntStream of(PrimitiveIterator.OfInt iterator) {
-        Objects.requireNonNull(iterator);
+        N.requireNonNull(iterator);
         return new IntStream(iterator);
     }
 
@@ -218,7 +219,7 @@ public final class IntStream implements Closeable {
      * @throws NullPointerException if {@code s} is null
      */
     public static IntStream generate(final IntSupplier s) {
-        Objects.requireNonNull(s);
+        N.requireNonNull(s);
         return new IntStream(new IntGenerate(s));
     }
 
@@ -247,7 +248,7 @@ public final class IntStream implements Closeable {
      * @throws NullPointerException if {@code f} is null
      */
     public static IntStream iterate(final int seed, final IntUnaryOperator f) {
-        Objects.requireNonNull(f);
+        N.requireNonNull(f);
         return new IntStream(new IntIterate(seed, f));
     }
 
@@ -271,7 +272,7 @@ public final class IntStream implements Closeable {
      * @since 1.1.5
      */
     public static IntStream iterate(final int seed, final IntPredicate predicate, final IntUnaryOperator op) {
-        Objects.requireNonNull(predicate);
+        N.requireNonNull(predicate);
         return iterate(seed, op).takeWhile(predicate);
     }
 
@@ -293,8 +294,8 @@ public final class IntStream implements Closeable {
      * @throws NullPointerException if {@code a} or {@code b} is null
      */
     public static IntStream concat(final IntStream a, final IntStream b) {
-        Objects.requireNonNull(a);
-        Objects.requireNonNull(b);
+        N.requireNonNull(a);
+        N.requireNonNull(b);
         @SuppressWarnings("resource")
         IntStream result = new IntStream(new IntConcat(a.iterator, b.iterator));
         return result.onClose(Compose.closeables(a, b));
@@ -538,7 +539,7 @@ public final class IntStream implements Closeable {
      * @since 1.1.6
      */
     public IntStream scan(final IntBinaryOperator accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new IntStream(params, new IntScan(iterator, accumulator));
     }
 
@@ -565,7 +566,7 @@ public final class IntStream implements Closeable {
      * @since 1.1.6
      */
     public IntStream scan(final int identity, final IntBinaryOperator accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new IntStream(params, new IntScanIdentity(iterator, identity, accumulator));
     }
 
@@ -1090,7 +1091,7 @@ public final class IntStream implements Closeable {
      * @throws NullPointerException if {@code function} is null
      */
     public <R> R chain(final Function<IntStream, R> function) {
-        Objects.requireNonNull(function);
+        N.requireNonNull(function);
         return function.apply(this);
     }
 
@@ -1104,7 +1105,7 @@ public final class IntStream implements Closeable {
      * @since 1.1.8
      */
     public IntStream onClose(final Runnable closeHandler) {
-        Objects.requireNonNull(closeHandler);
+        N.requireNonNull(closeHandler);
         final Params newParams;
         if (params == null) {
             newParams = new Params();

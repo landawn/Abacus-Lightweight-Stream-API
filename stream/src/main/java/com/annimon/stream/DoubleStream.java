@@ -26,6 +26,7 @@ import com.annimon.stream.operator.DoubleSkip;
 import com.annimon.stream.operator.DoubleSorted;
 import com.annimon.stream.operator.DoubleTakeUntil;
 import com.annimon.stream.operator.DoubleTakeWhile;
+import com.landawn.abacus.util.N;
 import com.landawn.abacus.util.OptionalDouble;
 import com.landawn.abacus.util.function.DoubleBinaryOperator;
 import com.landawn.abacus.util.function.DoubleConsumer;
@@ -70,7 +71,7 @@ public final class DoubleStream implements Closeable {
      * @throws NullPointerException if {@code values} is null
      */
     public static DoubleStream of(final double... values) {
-        Objects.requireNonNull(values);
+        N.requireNonNull(values);
         if (values.length == 0) {
             return DoubleStream.empty();
         }
@@ -85,7 +86,7 @@ public final class DoubleStream implements Closeable {
      * @throws NullPointerException if {@code iterator} is null
      */
     public static DoubleStream of(PrimitiveIterator.OfDouble iterator) {
-        Objects.requireNonNull(iterator);
+        N.requireNonNull(iterator);
         return new DoubleStream(iterator);
     }
 
@@ -97,7 +98,7 @@ public final class DoubleStream implements Closeable {
      * @throws NullPointerException if {@code s} is null
      */
     public static DoubleStream generate(final DoubleSupplier s) {
-        Objects.requireNonNull(s);
+        N.requireNonNull(s);
         return new DoubleStream(new DoubleGenerate(s));
     }
 
@@ -124,7 +125,7 @@ public final class DoubleStream implements Closeable {
      * @throws NullPointerException if {@code f} is null
      */
     public static DoubleStream iterate(final double seed, final DoubleUnaryOperator f) {
-        Objects.requireNonNull(f);
+        N.requireNonNull(f);
         return new DoubleStream(new DoubleIterate(seed, f));
     }
 
@@ -148,7 +149,7 @@ public final class DoubleStream implements Closeable {
      * @since 1.1.5
      */
     public static DoubleStream iterate(final double seed, final DoublePredicate predicate, final DoubleUnaryOperator op) {
-        Objects.requireNonNull(predicate);
+        N.requireNonNull(predicate);
         return iterate(seed, op).takeWhile(predicate);
     }
 
@@ -168,8 +169,8 @@ public final class DoubleStream implements Closeable {
      * @throws NullPointerException if {@code a} or {@code b} is null
      */
     public static DoubleStream concat(final DoubleStream a, final DoubleStream b) {
-        Objects.requireNonNull(a);
-        Objects.requireNonNull(b);
+        N.requireNonNull(a);
+        N.requireNonNull(b);
         @SuppressWarnings("resource")
         DoubleStream result = new DoubleStream(new DoubleConcat(a.iterator, b.iterator));
         return result.onClose(Compose.closeables(a, b));
@@ -402,7 +403,7 @@ public final class DoubleStream implements Closeable {
      * @since 1.1.6
      */
     public DoubleStream scan(final DoubleBinaryOperator accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new DoubleStream(params, new DoubleScan(iterator, accumulator));
     }
 
@@ -429,7 +430,7 @@ public final class DoubleStream implements Closeable {
      * @since 1.1.6
      */
     public DoubleStream scan(final double identity, final DoubleBinaryOperator accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new DoubleStream(params, new DoubleScanIdentity(iterator, identity, accumulator));
     }
 
@@ -947,7 +948,7 @@ public final class DoubleStream implements Closeable {
      * @throws NullPointerException if {@code function} is null
      */
     public <R> R chain(final Function<DoubleStream, R> function) {
-        Objects.requireNonNull(function);
+        N.requireNonNull(function);
         return function.apply(this);
     }
 
@@ -961,7 +962,7 @@ public final class DoubleStream implements Closeable {
      * @since 1.1.8
      */
     public DoubleStream onClose(final Runnable closeHandler) {
-        Objects.requireNonNull(closeHandler);
+        N.requireNonNull(closeHandler);
         final Params newParams;
         if (params == null) {
             newParams = new Params();

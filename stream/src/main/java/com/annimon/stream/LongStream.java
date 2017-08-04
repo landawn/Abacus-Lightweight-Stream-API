@@ -29,6 +29,7 @@ import com.annimon.stream.operator.LongSkip;
 import com.annimon.stream.operator.LongSorted;
 import com.annimon.stream.operator.LongTakeUntil;
 import com.annimon.stream.operator.LongTakeWhile;
+import com.landawn.abacus.util.N;
 import com.landawn.abacus.util.OptionalDouble;
 import com.landawn.abacus.util.OptionalLong;
 import com.landawn.abacus.util.function.Function;
@@ -74,7 +75,7 @@ public final class LongStream implements Closeable {
      * @throws NullPointerException if {@code values} is null
      */
     public static LongStream of(final long... values) {
-        Objects.requireNonNull(values);
+        N.requireNonNull(values);
         if (values.length == 0) {
             return LongStream.empty();
         }
@@ -89,7 +90,7 @@ public final class LongStream implements Closeable {
      * @throws NullPointerException if {@code iterator} is null
      */
     public static LongStream of(PrimitiveIterator.OfLong iterator) {
-        Objects.requireNonNull(iterator);
+        N.requireNonNull(iterator);
         return new LongStream(iterator);
     }
 
@@ -225,7 +226,7 @@ public final class LongStream implements Closeable {
      * @throws NullPointerException if {@code s} is null
      */
     public static LongStream generate(final LongSupplier s) {
-        Objects.requireNonNull(s);
+        N.requireNonNull(s);
         return new LongStream(new LongGenerate(s));
     }
 
@@ -252,7 +253,7 @@ public final class LongStream implements Closeable {
      * @throws NullPointerException if {@code f} is null
      */
     public static LongStream iterate(final long seed, final LongUnaryOperator f) {
-        Objects.requireNonNull(f);
+        N.requireNonNull(f);
         return new LongStream(new LongIterate(seed, f));
     }
 
@@ -276,7 +277,7 @@ public final class LongStream implements Closeable {
      * @since 1.1.5
      */
     public static LongStream iterate(final long seed, final LongPredicate predicate, final LongUnaryOperator op) {
-        Objects.requireNonNull(predicate);
+        N.requireNonNull(predicate);
         return iterate(seed, op).takeWhile(predicate);
     }
 
@@ -296,8 +297,8 @@ public final class LongStream implements Closeable {
      * @throws NullPointerException if {@code a} or {@code b} is null
      */
     public static LongStream concat(final LongStream a, final LongStream b) {
-        Objects.requireNonNull(a);
-        Objects.requireNonNull(b);
+        N.requireNonNull(a);
+        N.requireNonNull(b);
         @SuppressWarnings("resource")
         LongStream result = new LongStream(new LongConcat(a.iterator, b.iterator));
         return result.onClose(Compose.closeables(a, b));
@@ -530,7 +531,7 @@ public final class LongStream implements Closeable {
      * @since 1.1.6
      */
     public LongStream scan(final LongBinaryOperator accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new LongStream(params, new LongScan(iterator, accumulator));
     }
 
@@ -557,7 +558,7 @@ public final class LongStream implements Closeable {
      * @since 1.1.6
      */
     public LongStream scan(final long identity, final LongBinaryOperator accumulator) {
-        Objects.requireNonNull(accumulator);
+        N.requireNonNull(accumulator);
         return new LongStream(params, new LongScanIdentity(iterator, identity, accumulator));
     }
 
@@ -1074,7 +1075,7 @@ public final class LongStream implements Closeable {
      * @throws NullPointerException if {@code function} is null
      */
     public <R> R chain(final Function<LongStream, R> function) {
-        Objects.requireNonNull(function);
+        N.requireNonNull(function);
         return function.apply(this);
     }
 
@@ -1088,7 +1089,7 @@ public final class LongStream implements Closeable {
      * @since 1.1.8
      */
     public LongStream onClose(final Runnable closeHandler) {
-        Objects.requireNonNull(closeHandler);
+        N.requireNonNull(closeHandler);
         final Params newParams;
         if (params == null) {
             newParams = new Params();
