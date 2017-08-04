@@ -1,8 +1,8 @@
 package com.annimon.stream.longstreamtests;
 
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongFunction;
-import com.annimon.stream.function.LongPredicate;
+import com.landawn.abacus.util.function.LongFunction;
+import com.landawn.abacus.util.function.LongPredicate;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

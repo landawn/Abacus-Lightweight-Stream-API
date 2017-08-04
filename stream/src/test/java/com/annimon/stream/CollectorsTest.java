@@ -21,14 +21,14 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.annimon.stream.function.BinaryOperator;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.IntSupplier;
-import com.annimon.stream.function.Supplier;
-import com.annimon.stream.function.ToDoubleFunction;
-import com.annimon.stream.function.ToIntFunction;
-import com.annimon.stream.function.ToLongFunction;
-import com.annimon.stream.function.UnaryOperator;
+import com.landawn.abacus.util.function.BinaryOperator;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.IntSupplier;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToDoubleFunction;
+import com.landawn.abacus.util.function.ToIntFunction;
+import com.landawn.abacus.util.function.ToLongFunction;
+import com.landawn.abacus.util.function.UnaryOperator;
 
 /**
  * Tests {@code Collectors}.

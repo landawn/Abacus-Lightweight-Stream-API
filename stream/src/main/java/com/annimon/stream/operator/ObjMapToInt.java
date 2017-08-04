@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.ToIntFunction;
+import com.landawn.abacus.util.function.ToIntFunction;
 import com.annimon.stream.iterator.PrimitiveIterator;
 import java.util.Iterator;
 

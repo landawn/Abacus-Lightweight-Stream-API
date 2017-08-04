@@ -2,9 +2,9 @@ package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.Functions;
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntFunction;
-import com.annimon.stream.function.IntPredicate;
-import com.annimon.stream.function.IntUnaryOperator;
+import com.landawn.abacus.util.function.IntFunction;
+import com.landawn.abacus.util.function.IntPredicate;
+import com.landawn.abacus.util.function.IntUnaryOperator;
 import com.annimon.stream.test.hamcrest.StreamMatcher;
 import java.util.Arrays;
 import java.util.List;

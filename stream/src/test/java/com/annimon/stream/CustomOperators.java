@@ -1,11 +1,11 @@
 package com.annimon.stream;
 
-import com.annimon.stream.function.BinaryOperator;
-import com.annimon.stream.function.Consumer;
-import com.annimon.stream.function.DoubleBinaryOperator;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.IntBinaryOperator;
-import com.annimon.stream.function.LongBinaryOperator;
+import com.landawn.abacus.util.function.BinaryOperator;
+import com.landawn.abacus.util.function.Consumer;
+import com.landawn.abacus.util.function.DoubleBinaryOperator;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.IntBinaryOperator;
+import com.landawn.abacus.util.function.LongBinaryOperator;
 import com.annimon.stream.iterator.LsaIterator;
 import com.annimon.stream.iterator.PrimitiveIterator;
 import java.util.ArrayDeque;
@@ -14,7 +14,7 @@ import java.util.Iterator;
 /**
  * Custom operator examples for {@code Stream.custom) method.
  *
- * @see com.annimon.stream.Stream#chain(com.annimon.stream.function.Function)
+ * @see com.annimon.stream.Stream#chain(com.landawn.abacus.util.function.Function)
  */
 public final class CustomOperators {
 

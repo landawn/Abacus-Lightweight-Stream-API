@@ -1,7 +1,7 @@
 package com.annimon.stream.test.hamcrest;
 
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.Function;
+import com.landawn.abacus.util.function.Function;
 import java.util.List;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

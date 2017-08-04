@@ -1,7 +1,7 @@
 package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntFunction;
+import com.landawn.abacus.util.function.IntFunction;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.StreamMatcher.assertElements;
 import static org.hamcrest.Matchers.contains;

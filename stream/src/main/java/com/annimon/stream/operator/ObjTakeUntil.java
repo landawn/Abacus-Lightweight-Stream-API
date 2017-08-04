@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.Predicate;
+import com.landawn.abacus.util.function.Predicate;
 import com.annimon.stream.iterator.LsaExtIterator;
 import java.util.Iterator;
 

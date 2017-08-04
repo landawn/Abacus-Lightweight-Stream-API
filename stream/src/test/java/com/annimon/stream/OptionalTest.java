@@ -14,8 +14,8 @@ import java.util.NoSuchElementException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.annimon.stream.function.Consumer;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.Consumer;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * Tests {@code Optional}.

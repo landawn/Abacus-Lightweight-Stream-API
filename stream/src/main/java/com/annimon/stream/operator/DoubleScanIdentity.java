@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.DoubleBinaryOperator;
+import com.landawn.abacus.util.function.DoubleBinaryOperator;
 import com.annimon.stream.iterator.PrimitiveExtIterator;
 import com.annimon.stream.iterator.PrimitiveIterator;
 

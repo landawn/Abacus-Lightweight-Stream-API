@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.IntToLongFunction;
+import com.landawn.abacus.util.function.IntToLongFunction;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 public class IntMapToLong extends PrimitiveIterator.OfLong {

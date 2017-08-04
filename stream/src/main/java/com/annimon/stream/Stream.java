@@ -12,18 +12,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.annimon.stream.function.BiConsumer;
-import com.annimon.stream.function.BiFunction;
-import com.annimon.stream.function.BinaryOperator;
-import com.annimon.stream.function.Consumer;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.IntFunction;
-import com.annimon.stream.function.Predicate;
-import com.annimon.stream.function.Supplier;
-import com.annimon.stream.function.ToDoubleFunction;
-import com.annimon.stream.function.ToIntFunction;
-import com.annimon.stream.function.ToLongFunction;
-import com.annimon.stream.function.UnaryOperator;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
@@ -56,6 +44,20 @@ import com.annimon.stream.operator.ObjSorted;
 import com.annimon.stream.operator.ObjTakeUntil;
 import com.annimon.stream.operator.ObjTakeWhile;
 import com.annimon.stream.operator.ObjZip;
+import com.landawn.abacus.util.Comparators;
+import com.landawn.abacus.util.Fn;
+import com.landawn.abacus.util.function.BiConsumer;
+import com.landawn.abacus.util.function.BiFunction;
+import com.landawn.abacus.util.function.BinaryOperator;
+import com.landawn.abacus.util.function.Consumer;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.IntFunction;
+import com.landawn.abacus.util.function.Predicate;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToDoubleFunction;
+import com.landawn.abacus.util.function.ToIntFunction;
+import com.landawn.abacus.util.function.ToLongFunction;
+import com.landawn.abacus.util.function.UnaryOperator;
 
 /**
  * A sequence of elements supporting aggregate operations.
@@ -480,7 +482,7 @@ public class Stream<T> implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code IntStream}
-     * @see #map(com.annimon.stream.function.Function)
+     * @see #map(com.landawn.abacus.util.function.Function)
      */
     public IntStream mapToInt(final ToIntFunction<? super T> mapper) {
         return new IntStream(params, new ObjMapToInt<>(iterator, mapper));
@@ -494,7 +496,7 @@ public class Stream<T> implements Closeable {
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code LongStream}
      * @since 1.1.4
-     * @see #map(com.annimon.stream.function.Function)
+     * @see #map(com.landawn.abacus.util.function.Function)
      */
     public LongStream mapToLong(final ToLongFunction<? super T> mapper) {
         return new LongStream(params, new ObjMapToLong<>(iterator, mapper));
@@ -508,7 +510,7 @@ public class Stream<T> implements Closeable {
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code DoubleStream}
      * @since 1.1.4
-     * @see #map(com.annimon.stream.function.Function)
+     * @see #map(com.landawn.abacus.util.function.Function)
      */
     public DoubleStream mapToDouble(final ToDoubleFunction<? super T> mapper) {
         return new DoubleStream(params, new ObjMapToDouble<>(iterator, mapper));
@@ -584,7 +586,7 @@ public class Stream<T> implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code IntStream}
-     * @see #flatMap(com.annimon.stream.function.Function)
+     * @see #flatMap(com.landawn.abacus.util.function.Function)
      */
     public IntStream flatMapToInt(final Function<? super T, ? extends IntStream> mapper) {
         return new IntStream(params, new ObjFlatMapToInt<>(iterator, mapper));
@@ -599,7 +601,7 @@ public class Stream<T> implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code LongStream}
-     * @see #flatMap(com.annimon.stream.function.Function)
+     * @see #flatMap(com.landawn.abacus.util.function.Function)
      */
     public LongStream flatMapToLong(final Function<? super T, ? extends LongStream> mapper) {
         return new LongStream(params, new ObjFlatMapToLong<>(iterator, mapper));
@@ -614,7 +616,7 @@ public class Stream<T> implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code DoubleStream}
-     * @see #flatMap(com.annimon.stream.function.Function)
+     * @see #flatMap(com.landawn.abacus.util.function.Function)
      */
     public DoubleStream flatMapToDouble(final Function<? super T, ? extends DoubleStream> mapper) {
         return new DoubleStream(params, new ObjFlatMapToDouble<>(iterator, mapper));
@@ -1217,7 +1219,7 @@ public class Stream<T> implements Closeable {
      * @return the minimum element
      */
     public Optional<T> min(Comparator<? super T> comparator) {
-        return reduce(Fn.<T> minBy(comparator));
+        return reduce(minBy(comparator));
     }
 
     public <U extends Comparable<? super U>> Optional<T> minBy(final Function<? super T, U> keyExtractor) {
@@ -1240,7 +1242,7 @@ public class Stream<T> implements Closeable {
      * @return the maximum element
      */
     public Optional<T> max(Comparator<? super T> comparator) {
-        return reduce(Fn.<T> maxBy(comparator));
+        return reduce(maxBy(comparator));
     }
 
     public <U extends Comparable<? super U>> Optional<T> maxBy(final Function<? super T, U> keyExtractor) {
@@ -1294,7 +1296,7 @@ public class Stream<T> implements Closeable {
      *
      * @param accumulator  the accumulation function
      * @return the result of the reduction
-     * @see #reduce(java.lang.Object, com.annimon.stream.function.BiFunction)
+     * @see #reduce(java.lang.Object, com.landawn.abacus.util.function.BiFunction)
      */
     public Optional<T> reduce(BiFunction<T, T, T> accumulator) {
         boolean foundAny = false;
@@ -1340,7 +1342,7 @@ public class Stream<T> implements Closeable {
      * @param <A> the intermediate used by {@code Collector}
      * @param collector  the {@code Collector}
      * @return the result of collect elements
-     * @see #collect(com.annimon.stream.function.Supplier, com.annimon.stream.function.BiConsumer)
+     * @see #collect(com.landawn.abacus.util.function.Supplier, com.landawn.abacus.util.function.BiConsumer)
      */
     public <R, A> R collect(Collector<? super T, A, R> collector) {
         A container = collector.supplier().get();
@@ -1375,7 +1377,7 @@ public class Stream<T> implements Closeable {
      * <p>This is a terminal operation.
      *
      * @return the result of collect elements
-     * @see #toArray(com.annimon.stream.function.IntFunction)
+     * @see #toArray(com.landawn.abacus.util.function.IntFunction)
      */
     public Object[] toArray() {
         return toArray(new IntFunction<Object[]>() {
@@ -1567,6 +1569,46 @@ public class Stream<T> implements Closeable {
             params.closeHandler.run();
             params.closeHandler = null;
         }
+    }
+
+    /**
+     * Returns a {@code BinaryOperator} which returns lesser of two elements
+     * according to the specified {@code Comparator}.
+     *
+     * @param <T> the type of the input arguments of the comparator
+     * @param comparator  a {@code Comparator} for comparing the two values
+     * @return a {@code BinaryOperator} which returns the lesser of its operands,
+     *         according to the supplied {@code Comparator}
+     * @throws NullPointerException if the argument is null
+     */
+    static <T> BinaryOperator<T> minBy(final Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return new BinaryOperator<T>() {
+            @Override
+            public T apply(T a, T b) {
+                return comparator.compare(a, b) <= 0 ? a : b;
+            }
+        };
+    }
+
+    /**
+     * Returns a {@code BinaryOperator} which returns greater of two elements
+     * according to the specified {@code Comparator}.
+     *
+     * @param <T> the type of the input arguments of the comparator
+     * @param comparator  a {@code Comparator} for comparing the two values
+     * @return a {@code BinaryOperator} which returns the greater of its operands,
+     *         according to the supplied {@code Comparator}
+     * @throws NullPointerException if the argument is null
+     */
+    static <T> BinaryOperator<T> maxBy(final Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return new BinaryOperator<T>() {
+            @Override
+            public T apply(T a, T b) {
+                return comparator.compare(a, b) >= 0 ? a : b;
+            }
+        };
     }
 
     private static final int MATCH_ANY = 0;

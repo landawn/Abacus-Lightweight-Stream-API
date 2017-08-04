@@ -7,8 +7,8 @@ import org.junit.Test;
 import com.annimon.stream.Functions;
 import com.annimon.stream.IntStream;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.BiConsumer;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.BiConsumer;
+import com.landawn.abacus.util.function.Supplier;
 
 public final class CollectTest {
 

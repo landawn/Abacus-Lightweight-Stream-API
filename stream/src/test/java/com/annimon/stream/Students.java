@@ -1,6 +1,6 @@
 package com.annimon.stream;
 
-import com.annimon.stream.function.Function;
+import com.landawn.abacus.util.function.Function;
 import java.util.Arrays;
 import java.util.List;
 

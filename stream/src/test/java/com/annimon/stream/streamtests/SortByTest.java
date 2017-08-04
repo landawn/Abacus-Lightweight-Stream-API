@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.annimon.stream.Stream;
 import com.annimon.stream.Student;
 import com.annimon.stream.Students;
-import com.annimon.stream.function.Function;
+import com.landawn.abacus.util.function.Function;
 
 public final class SortByTest {
 

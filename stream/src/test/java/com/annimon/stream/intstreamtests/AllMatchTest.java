@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntPredicate;
+import com.landawn.abacus.util.function.IntPredicate;
 
 public final class AllMatchTest {
 

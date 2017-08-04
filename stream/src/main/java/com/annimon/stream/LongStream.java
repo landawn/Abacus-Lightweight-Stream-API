@@ -5,18 +5,18 @@ import java.math.BigInteger;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.LongBinaryOperator;
-import com.annimon.stream.function.LongConsumer;
-import com.annimon.stream.function.LongFunction;
-import com.annimon.stream.function.LongPredicate;
-import com.annimon.stream.function.LongSupplier;
-import com.annimon.stream.function.LongToDoubleFunction;
-import com.annimon.stream.function.LongToIntFunction;
-import com.annimon.stream.function.LongUnaryOperator;
-import com.annimon.stream.function.ObjLongConsumer;
-import com.annimon.stream.function.Supplier;
-import com.annimon.stream.function.ToLongFunction;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.LongBinaryOperator;
+import com.landawn.abacus.util.function.LongConsumer;
+import com.landawn.abacus.util.function.LongFunction;
+import com.landawn.abacus.util.function.LongPredicate;
+import com.landawn.abacus.util.function.LongSupplier;
+import com.landawn.abacus.util.function.LongToDoubleFunction;
+import com.landawn.abacus.util.function.LongToIntFunction;
+import com.landawn.abacus.util.function.LongUnaryOperator;
+import com.landawn.abacus.util.function.ObjLongConsumer;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToLongFunction;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
@@ -373,7 +373,7 @@ public final class LongStream implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new stream
-     * @see Stream#map(com.annimon.stream.function.Function)
+     * @see Stream#map(com.landawn.abacus.util.function.Function)
      */
     public LongStream map(final LongUnaryOperator mapper) {
         return new LongStream(params, new LongMap(iterator, mapper));
@@ -435,7 +435,7 @@ public final class LongStream implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new stream
-     * @see Stream#flatMap(com.annimon.stream.function.Function)
+     * @see Stream#flatMap(com.landawn.abacus.util.function.Function)
      */
     public LongStream flatMap(final LongFunction<? extends LongStream> mapper) {
         return new LongStream(params, new LongFlatMap(iterator, mapper));
@@ -738,7 +738,7 @@ public final class LongStream implements Closeable {
      *
      * @param accumulator  the accumulation function
      * @return the result of the reduction
-     * @see #reduce(com.annimon.stream.function.LongBinaryOperator)
+     * @see #reduce(com.landawn.abacus.util.function.LongBinaryOperator)
      */
     public OptionalLong reduce(LongBinaryOperator accumulator) {
         boolean foundAny = false;
@@ -775,7 +775,7 @@ public final class LongStream implements Closeable {
      * @param supplier  the supplier function that provides container
      * @param accumulator  the accumulation function
      * @return the result of collect elements
-     * @see Stream#collect(com.annimon.stream.function.Supplier, com.annimon.stream.function.BiConsumer)
+     * @see Stream#collect(com.landawn.abacus.util.function.Supplier, com.landawn.abacus.util.function.BiConsumer)
      */
     public <R> R collect(Supplier<R> supplier, ObjLongConsumer<R> accumulator) {
         final R result = supplier.get();
@@ -1068,7 +1068,7 @@ public final class LongStream implements Closeable {
      * @param <R> the type of the result
      * @param function  a transforming function
      * @return a result of the transforming function
-     * @see Stream#chain(com.annimon.stream.function.Function)
+     * @see Stream#chain(com.landawn.abacus.util.function.Function)
      * @throws NullPointerException if {@code function} is null
      */
     public <R> R chain(final Function<LongStream, R> function) {

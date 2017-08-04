@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntSupplier;
+import com.landawn.abacus.util.function.IntSupplier;
 
 public final class LimitTest {
 

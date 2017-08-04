@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.DoubleConsumer;
+import com.landawn.abacus.util.function.DoubleConsumer;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 public class DoublePeek extends PrimitiveIterator.OfDouble {

@@ -2,7 +2,7 @@ package com.annimon.stream.longstreamtests;
 
 import com.annimon.stream.CustomOperators;
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongBinaryOperator;
+import com.landawn.abacus.util.function.LongBinaryOperator;
 import org.junit.Test;
 import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;

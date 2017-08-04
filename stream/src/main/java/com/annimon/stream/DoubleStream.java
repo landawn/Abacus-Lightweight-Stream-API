@@ -3,18 +3,18 @@ package com.annimon.stream;
 import java.io.Closeable;
 import java.util.Comparator;
 
-import com.annimon.stream.function.DoubleBinaryOperator;
-import com.annimon.stream.function.DoubleConsumer;
-import com.annimon.stream.function.DoubleFunction;
-import com.annimon.stream.function.DoublePredicate;
-import com.annimon.stream.function.DoubleSupplier;
-import com.annimon.stream.function.DoubleToIntFunction;
-import com.annimon.stream.function.DoubleToLongFunction;
-import com.annimon.stream.function.DoubleUnaryOperator;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.ObjDoubleConsumer;
-import com.annimon.stream.function.Supplier;
-import com.annimon.stream.function.ToDoubleFunction;
+import com.landawn.abacus.util.function.DoubleBinaryOperator;
+import com.landawn.abacus.util.function.DoubleConsumer;
+import com.landawn.abacus.util.function.DoubleFunction;
+import com.landawn.abacus.util.function.DoublePredicate;
+import com.landawn.abacus.util.function.DoubleSupplier;
+import com.landawn.abacus.util.function.DoubleToIntFunction;
+import com.landawn.abacus.util.function.DoubleToLongFunction;
+import com.landawn.abacus.util.function.DoubleUnaryOperator;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.ObjDoubleConsumer;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToDoubleFunction;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
@@ -246,7 +246,7 @@ public final class DoubleStream implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new stream
-     * @see Stream#map(com.annimon.stream.function.Function)
+     * @see Stream#map(com.landawn.abacus.util.function.Function)
      */
     public DoubleStream map(final DoubleUnaryOperator mapper) {
         return new DoubleStream(params, new DoubleMap(iterator, mapper));
@@ -308,7 +308,7 @@ public final class DoubleStream implements Closeable {
      *
      * @param mapper  the mapper function used to apply to each element
      * @return the new stream
-     * @see Stream#flatMap(com.annimon.stream.function.Function)
+     * @see Stream#flatMap(com.landawn.abacus.util.function.Function)
      */
     public DoubleStream flatMap(final DoubleFunction<? extends DoubleStream> mapper) {
         return new DoubleStream(params, new DoubleFlatMap(iterator, mapper));
@@ -611,7 +611,7 @@ public final class DoubleStream implements Closeable {
      *
      * @param accumulator  the accumulation function
      * @return the result of the reduction
-     * @see #reduce(com.annimon.stream.function.DoubleBinaryOperator)
+     * @see #reduce(com.landawn.abacus.util.function.DoubleBinaryOperator)
      */
     public OptionalDouble reduce(DoubleBinaryOperator accumulator) {
         boolean foundAny = false;
@@ -648,7 +648,7 @@ public final class DoubleStream implements Closeable {
      * @param supplier  the supplier function that provides container
      * @param accumulator  the accumulation function
      * @return the result of collect elements
-     * @see Stream#collect(com.annimon.stream.function.Supplier, com.annimon.stream.function.BiConsumer)
+     * @see Stream#collect(com.landawn.abacus.util.function.Supplier, com.landawn.abacus.util.function.BiConsumer)
      */
     public <R> R collect(Supplier<R> supplier, ObjDoubleConsumer<R> accumulator) {
         final R result = supplier.get();
@@ -942,7 +942,7 @@ public final class DoubleStream implements Closeable {
      * @param <R> the type of the result
      * @param function  a transforming function
      * @return a result of the transforming function
-     * @see Stream#chain(com.annimon.stream.function.Function)
+     * @see Stream#chain(com.landawn.abacus.util.function.Function)
      * @throws NullPointerException if {@code function} is null
      */
     public <R> R chain(final Function<DoubleStream, R> function) {

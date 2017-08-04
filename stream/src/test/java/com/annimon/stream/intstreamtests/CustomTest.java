@@ -2,7 +2,7 @@ package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.CustomOperators;
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntBinaryOperator;
+import com.landawn.abacus.util.function.IntBinaryOperator;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.closeTo;

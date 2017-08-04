@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.Consumer;
+import com.landawn.abacus.util.function.Consumer;
 
 public final class PeekTest {
 

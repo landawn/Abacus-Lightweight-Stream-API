@@ -2,7 +2,7 @@ package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.Functions;
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntPredicate;
+import com.landawn.abacus.util.function.IntPredicate;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

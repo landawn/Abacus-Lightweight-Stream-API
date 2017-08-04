@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.LongConsumer;
+import com.landawn.abacus.util.function.LongConsumer;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 public class LongPeek extends PrimitiveIterator.OfLong {

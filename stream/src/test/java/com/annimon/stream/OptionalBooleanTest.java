@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import com.annimon.stream.function.BooleanConsumer;
+import com.landawn.abacus.util.function.BooleanConsumer;
 
 /**
  * Tests for {@link OptionalBoolean}

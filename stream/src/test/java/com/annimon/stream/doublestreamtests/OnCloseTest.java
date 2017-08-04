@@ -1,8 +1,8 @@
 package com.annimon.stream.doublestreamtests;
 
 import com.annimon.stream.DoubleStream;
-import com.annimon.stream.function.DoubleFunction;
-import com.annimon.stream.function.DoublePredicate;
+import com.landawn.abacus.util.function.DoubleFunction;
+import com.landawn.abacus.util.function.DoublePredicate;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

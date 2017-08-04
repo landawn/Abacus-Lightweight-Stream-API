@@ -1,7 +1,7 @@
 package com.annimon.stream.operator;
 
 import com.annimon.stream.DoubleStream;
-import com.annimon.stream.function.DoubleFunction;
+import com.landawn.abacus.util.function.DoubleFunction;
 import com.annimon.stream.iterator.PrimitiveIterator;
 import java.util.NoSuchElementException;
 

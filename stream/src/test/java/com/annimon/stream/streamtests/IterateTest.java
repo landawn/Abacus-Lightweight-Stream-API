@@ -2,9 +2,9 @@ package com.annimon.stream.streamtests;
 
 import com.annimon.stream.Optional;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.BinaryOperator;
-import com.annimon.stream.function.Predicate;
-import com.annimon.stream.function.UnaryOperator;
+import com.landawn.abacus.util.function.BinaryOperator;
+import com.landawn.abacus.util.function.Predicate;
+import com.landawn.abacus.util.function.UnaryOperator;
 import java.math.BigInteger;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.OptionalMatcher.isPresent;

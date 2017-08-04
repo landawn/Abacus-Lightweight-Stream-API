@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.LongUnaryOperator;
+import com.landawn.abacus.util.function.LongUnaryOperator;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 public class LongIterate extends PrimitiveIterator.OfLong {

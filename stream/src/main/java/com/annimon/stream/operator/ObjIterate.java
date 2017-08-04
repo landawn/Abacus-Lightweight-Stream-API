@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.UnaryOperator;
+import com.landawn.abacus.util.function.UnaryOperator;
 import com.annimon.stream.iterator.LsaIterator;
 
 public class ObjIterate<T> extends LsaIterator<T> {

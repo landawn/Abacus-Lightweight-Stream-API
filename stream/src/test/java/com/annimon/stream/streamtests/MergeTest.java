@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.annimon.stream.IntStream;
 import com.annimon.stream.Objects;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.BiFunction;
+import com.landawn.abacus.util.function.BiFunction;
 import com.annimon.stream.operator.ObjMerge;
 import com.annimon.stream.test.hamcrest.StreamMatcher;
 

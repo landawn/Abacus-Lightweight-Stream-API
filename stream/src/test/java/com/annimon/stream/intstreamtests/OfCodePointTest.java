@@ -2,7 +2,7 @@ package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntFunction;
+import com.landawn.abacus.util.function.IntFunction;
 import com.annimon.stream.iterator.PrimitiveIterator;
 import java.util.NoSuchElementException;
 import org.junit.Test;

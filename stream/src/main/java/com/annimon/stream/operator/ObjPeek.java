@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.Consumer;
+import com.landawn.abacus.util.function.Consumer;
 import com.annimon.stream.iterator.LsaIterator;
 import java.util.Iterator;
 

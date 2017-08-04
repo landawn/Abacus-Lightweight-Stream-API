@@ -1,7 +1,7 @@
 package com.annimon.stream.doublestreamtests;
 
 import com.annimon.stream.DoubleStream;
-import com.annimon.stream.function.DoubleConsumer;
+import com.landawn.abacus.util.function.DoubleConsumer;
 import org.junit.Test;
 import static org.hamcrest.Matchers.closeTo;
 import static org.junit.Assert.assertThat;

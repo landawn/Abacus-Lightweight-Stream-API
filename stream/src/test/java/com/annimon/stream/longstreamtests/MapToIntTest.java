@@ -1,7 +1,7 @@
 package com.annimon.stream.longstreamtests;
 
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongToIntFunction;
+import com.landawn.abacus.util.function.LongToIntFunction;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.IntStreamMatcher.assertElements;
 import static org.hamcrest.Matchers.arrayContaining;

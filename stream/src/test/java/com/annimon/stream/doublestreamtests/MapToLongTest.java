@@ -1,7 +1,7 @@
 package com.annimon.stream.doublestreamtests;
 
 import com.annimon.stream.DoubleStream;
-import com.annimon.stream.function.DoubleToLongFunction;
+import com.landawn.abacus.util.function.DoubleToLongFunction;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

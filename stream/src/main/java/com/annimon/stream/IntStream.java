@@ -4,18 +4,18 @@ import java.io.Closeable;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.IntBinaryOperator;
-import com.annimon.stream.function.IntConsumer;
-import com.annimon.stream.function.IntFunction;
-import com.annimon.stream.function.IntPredicate;
-import com.annimon.stream.function.IntSupplier;
-import com.annimon.stream.function.IntToDoubleFunction;
-import com.annimon.stream.function.IntToLongFunction;
-import com.annimon.stream.function.IntUnaryOperator;
-import com.annimon.stream.function.ObjIntConsumer;
-import com.annimon.stream.function.Supplier;
-import com.annimon.stream.function.ToIntFunction;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.IntBinaryOperator;
+import com.landawn.abacus.util.function.IntConsumer;
+import com.landawn.abacus.util.function.IntFunction;
+import com.landawn.abacus.util.function.IntPredicate;
+import com.landawn.abacus.util.function.IntSupplier;
+import com.landawn.abacus.util.function.IntToDoubleFunction;
+import com.landawn.abacus.util.function.IntToLongFunction;
+import com.landawn.abacus.util.function.IntUnaryOperator;
+import com.landawn.abacus.util.function.ObjIntConsumer;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToIntFunction;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
@@ -387,7 +387,7 @@ public final class IntStream implements Closeable {
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code LongStream}
      * @since 1.1.4
-     * @see #flatMap(com.annimon.stream.function.IntFunction)
+     * @see #flatMap(com.landawn.abacus.util.function.IntFunction)
      */
     public LongStream mapToLong(final IntToLongFunction mapper) {
         return new LongStream(params, new IntMapToLong(iterator, mapper));
@@ -402,7 +402,7 @@ public final class IntStream implements Closeable {
      * @param mapper  the mapper function used to apply to each element
      * @return the new {@code DoubleStream}
      * @since 1.1.4
-     * @see #flatMap(com.annimon.stream.function.IntFunction)
+     * @see #flatMap(com.landawn.abacus.util.function.IntFunction)
      */
     public DoubleStream mapToDouble(final IntToDoubleFunction mapper) {
         return new DoubleStream(params, new IntMapToDouble(iterator, mapper));
@@ -999,7 +999,7 @@ public final class IntStream implements Closeable {
      * @param supplier  the supplier function that provides container
      * @param accumulator  the accumulation function
      * @return the result of collect elements
-     * @see Stream#collect(com.annimon.stream.function.Supplier, com.annimon.stream.function.BiConsumer)
+     * @see Stream#collect(com.landawn.abacus.util.function.Supplier, com.landawn.abacus.util.function.BiConsumer)
      */
     public <R> R collect(Supplier<R> supplier, ObjIntConsumer<R> accumulator) {
         R result = supplier.get();
@@ -1084,7 +1084,7 @@ public final class IntStream implements Closeable {
      * @param <R> the type of the result
      * @param function  a transforming function
      * @return a result of the transforming function
-     * @see Stream#chain(com.annimon.stream.function.Function)
+     * @see Stream#chain(com.landawn.abacus.util.function.Function)
      * @throws NullPointerException if {@code function} is null
      */
     public <R> R chain(final Function<IntStream, R> function) {

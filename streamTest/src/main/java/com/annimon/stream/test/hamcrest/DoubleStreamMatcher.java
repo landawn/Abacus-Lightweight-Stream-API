@@ -1,8 +1,8 @@
 package com.annimon.stream.test.hamcrest;
 
 import com.annimon.stream.DoubleStream;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.IntFunction;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.IntFunction;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;

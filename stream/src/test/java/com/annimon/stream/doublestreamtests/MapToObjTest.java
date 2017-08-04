@@ -1,7 +1,7 @@
 package com.annimon.stream.doublestreamtests;
 
 import com.annimon.stream.DoubleStream;
-import com.annimon.stream.function.DoubleFunction;
+import com.landawn.abacus.util.function.DoubleFunction;
 import com.annimon.stream.test.hamcrest.StreamMatcher;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.StreamMatcher.assertElements;

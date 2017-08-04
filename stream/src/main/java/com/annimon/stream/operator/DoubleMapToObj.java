@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.DoubleFunction;
+import com.landawn.abacus.util.function.DoubleFunction;
 import com.annimon.stream.iterator.LsaIterator;
 import com.annimon.stream.iterator.PrimitiveIterator;
 

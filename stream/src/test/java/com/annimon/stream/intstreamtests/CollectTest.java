@@ -2,7 +2,7 @@ package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.Functions;
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.ObjIntConsumer;
+import com.landawn.abacus.util.function.ObjIntConsumer;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

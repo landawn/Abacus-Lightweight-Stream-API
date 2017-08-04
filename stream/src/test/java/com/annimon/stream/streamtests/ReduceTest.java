@@ -12,7 +12,7 @@ import com.annimon.stream.Functions;
 import com.annimon.stream.IntStream;
 import com.annimon.stream.Optional;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.BiFunction;
+import com.landawn.abacus.util.function.BiFunction;
 
 public final class ReduceTest {
 

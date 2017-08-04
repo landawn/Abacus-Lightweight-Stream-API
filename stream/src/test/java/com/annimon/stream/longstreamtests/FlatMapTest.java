@@ -1,7 +1,7 @@
 package com.annimon.stream.longstreamtests;
 
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongFunction;
+import com.landawn.abacus.util.function.LongFunction;
 import java.util.NoSuchElementException;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.LongStreamMatcher.assertElements;

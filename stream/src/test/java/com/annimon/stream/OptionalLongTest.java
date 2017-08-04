@@ -12,9 +12,9 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import com.annimon.stream.function.LongConsumer;
-import com.annimon.stream.function.LongSupplier;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.LongConsumer;
+import com.landawn.abacus.util.function.LongSupplier;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * Tests for {@link OptionalLong}

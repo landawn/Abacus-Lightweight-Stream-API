@@ -2,9 +2,9 @@ package com.annimon.stream;
 
 import java.util.Random;
 
-import com.annimon.stream.function.DoubleSupplier;
-import com.annimon.stream.function.IntSupplier;
-import com.annimon.stream.function.LongSupplier;
+import com.landawn.abacus.util.function.DoubleSupplier;
+import com.landawn.abacus.util.function.IntSupplier;
+import com.landawn.abacus.util.function.LongSupplier;
 
 /**
  * Backported stream apis from {@link java.util.Random} class.

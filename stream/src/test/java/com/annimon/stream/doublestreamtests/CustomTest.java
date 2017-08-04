@@ -3,7 +3,7 @@ package com.annimon.stream.doublestreamtests;
 import com.annimon.stream.CustomOperators;
 import com.annimon.stream.DoubleStream;
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.DoubleBinaryOperator;
+import com.landawn.abacus.util.function.DoubleBinaryOperator;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.DoubleStreamMatcher.elements;
 import static org.hamcrest.Matchers.arrayContaining;

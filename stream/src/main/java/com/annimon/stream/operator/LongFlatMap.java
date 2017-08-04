@@ -1,7 +1,7 @@
 package com.annimon.stream.operator;
 
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongFunction;
+import com.landawn.abacus.util.function.LongFunction;
 import com.annimon.stream.iterator.PrimitiveIterator;
 import java.util.NoSuchElementException;
 

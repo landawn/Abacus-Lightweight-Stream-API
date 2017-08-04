@@ -2,9 +2,9 @@ package com.annimon.stream;
 
 import java.util.NoSuchElementException;
 
-import com.annimon.stream.function.DoubleConsumer;
-import com.annimon.stream.function.DoubleSupplier;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.DoubleConsumer;
+import com.landawn.abacus.util.function.DoubleSupplier;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * A container object which may or may not contain a {@code double} value.

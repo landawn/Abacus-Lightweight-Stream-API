@@ -1,7 +1,7 @@
 package com.annimon.stream.longstreamtests;
 
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongConsumer;
+import com.landawn.abacus.util.function.LongConsumer;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

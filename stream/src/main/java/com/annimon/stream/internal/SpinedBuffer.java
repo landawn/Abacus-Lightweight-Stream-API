@@ -3,9 +3,9 @@ package com.annimon.stream.internal;
 import java.util.Arrays;
 import java.util.Iterator;
 
-import com.annimon.stream.function.DoubleConsumer;
-import com.annimon.stream.function.IntConsumer;
-import com.annimon.stream.function.LongConsumer;
+import com.landawn.abacus.util.function.DoubleConsumer;
+import com.landawn.abacus.util.function.IntConsumer;
+import com.landawn.abacus.util.function.LongConsumer;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 final class SpinedBuffer {

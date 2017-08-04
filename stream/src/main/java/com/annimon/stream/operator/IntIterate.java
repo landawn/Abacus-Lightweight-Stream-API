@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.IntUnaryOperator;
+import com.landawn.abacus.util.function.IntUnaryOperator;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 public class IntIterate extends PrimitiveIterator.OfInt {

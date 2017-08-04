@@ -1,8 +1,8 @@
 package com.annimon.stream;
 
-import com.annimon.stream.function.BiConsumer;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.BiConsumer;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * The Collector of stream data.

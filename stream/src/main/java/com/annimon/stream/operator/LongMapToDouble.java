@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.LongToDoubleFunction;
+import com.landawn.abacus.util.function.LongToDoubleFunction;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 public class LongMapToDouble extends PrimitiveIterator.OfDouble {

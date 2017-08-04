@@ -2,8 +2,8 @@ package com.annimon.stream.streamtests;
 
 import com.annimon.stream.Functions;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.BiFunction;
-import com.annimon.stream.function.BinaryOperator;
+import com.landawn.abacus.util.function.BiFunction;
+import com.landawn.abacus.util.function.BinaryOperator;
 import com.annimon.stream.test.hamcrest.StreamMatcher;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.StreamMatcher.assertElements;

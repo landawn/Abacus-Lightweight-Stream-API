@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.annimon.stream.function.IntFunction;
 import com.annimon.stream.iterator.PrimitiveIterator;
+import com.landawn.abacus.util.function.IntFunction;
 
 public final class Operators {
 

@@ -1,7 +1,7 @@
 package com.annimon.stream.operator;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.Function;
+import com.landawn.abacus.util.function.Function;
 import com.annimon.stream.iterator.PrimitiveExtIterator;
 import com.annimon.stream.iterator.PrimitiveIterator;
 import java.util.Iterator;

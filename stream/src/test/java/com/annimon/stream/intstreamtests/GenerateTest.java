@@ -1,7 +1,7 @@
 package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntSupplier;
+import com.landawn.abacus.util.function.IntSupplier;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 

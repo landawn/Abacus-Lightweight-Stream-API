@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongConsumer;
+import com.landawn.abacus.util.function.LongConsumer;
 
 public final class PeekTest {
 

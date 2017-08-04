@@ -2,9 +2,9 @@ package com.annimon.stream;
 
 import java.util.NoSuchElementException;
 
-import com.annimon.stream.function.BooleanConsumer;
-import com.annimon.stream.function.BooleanSupplier;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.BooleanConsumer;
+import com.landawn.abacus.util.function.BooleanSupplier;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * A container object which may or may not contain a {@code boolean} value.

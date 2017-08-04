@@ -5,16 +5,16 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 
-import com.annimon.stream.function.BiConsumer;
-import com.annimon.stream.function.BiFunction;
-import com.annimon.stream.function.DoublePredicate;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.IntFunction;
-import com.annimon.stream.function.IntPredicate;
-import com.annimon.stream.function.LongPredicate;
-import com.annimon.stream.function.Predicate;
-import com.annimon.stream.function.Supplier;
-import com.annimon.stream.function.ToIntFunction;
+import com.landawn.abacus.util.function.BiConsumer;
+import com.landawn.abacus.util.function.BiFunction;
+import com.landawn.abacus.util.function.DoublePredicate;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.IntFunction;
+import com.landawn.abacus.util.function.IntPredicate;
+import com.landawn.abacus.util.function.LongPredicate;
+import com.landawn.abacus.util.function.Predicate;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToIntFunction;
 
 /**
  * Functions that used in tests.

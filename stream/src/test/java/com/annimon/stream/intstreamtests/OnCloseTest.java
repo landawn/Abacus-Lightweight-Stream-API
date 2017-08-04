@@ -1,8 +1,8 @@
 package com.annimon.stream.intstreamtests;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.IntFunction;
-import com.annimon.stream.function.IntPredicate;
+import com.landawn.abacus.util.function.IntFunction;
+import com.landawn.abacus.util.function.IntPredicate;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

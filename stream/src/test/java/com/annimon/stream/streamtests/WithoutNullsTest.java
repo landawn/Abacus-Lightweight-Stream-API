@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.contains;
 import org.junit.Test;
 
 import com.annimon.stream.IntStream;
-import com.annimon.stream.function.Function;
+import com.landawn.abacus.util.function.Function;
 
 public final class WithoutNullsTest {
 

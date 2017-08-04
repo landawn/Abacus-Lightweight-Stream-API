@@ -23,15 +23,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.annimon.stream.function.BiConsumer;
-import com.annimon.stream.function.BinaryOperator;
-import com.annimon.stream.function.Consumer;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.Predicate;
-import com.annimon.stream.function.Supplier;
-import com.annimon.stream.function.ToDoubleFunction;
-import com.annimon.stream.function.ToIntFunction;
-import com.annimon.stream.function.ToLongFunction;
+import com.landawn.abacus.util.Fn;
+import com.landawn.abacus.util.function.BiConsumer;
+import com.landawn.abacus.util.function.BinaryOperator;
+import com.landawn.abacus.util.function.Consumer;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.Predicate;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToDoubleFunction;
+import com.landawn.abacus.util.function.ToIntFunction;
+import com.landawn.abacus.util.function.ToLongFunction;
 
 /**
  * Common implementations of {@code Collector} interface.
@@ -461,7 +462,7 @@ public final class Collectors {
      * @param identity  the initial value
      * @param op  the operator to reduce elements
      * @return a {@code Collector}
-     * @see #reducing(java.lang.Object, com.annimon.stream.function.Function, com.annimon.stream.function.BinaryOperator) 
+     * @see #reducing(java.lang.Object, com.landawn.abacus.util.function.Function, com.landawn.abacus.util.function.BinaryOperator) 
      */
     public static <T> Collector<T, ?, T> reducing(final T identity, final BinaryOperator<T> op) {
         return new CollectorsImpl<>(
@@ -497,7 +498,7 @@ public final class Collectors {
      * @param mapper  the mapping function
      * @param op  the operator to reduce elements
      * @return a {@code Collector}
-     * @see #reducing(java.lang.Object, com.annimon.stream.function.BinaryOperator) 
+     * @see #reducing(java.lang.Object, com.landawn.abacus.util.function.BinaryOperator) 
      */
     public static <T, R> Collector<T, ?, R> reducing(final R identity, final Function<? super T, ? extends R> mapper, final BinaryOperator<R> op) {
         return new CollectorsImpl<>(
@@ -650,8 +651,8 @@ public final class Collectors {
      * @param <K> the type of the keys
      * @param classifier  the classifier function 
      * @return a {@code Collector}
-     * @see #groupingBy(com.annimon.stream.function.Function, com.annimon.stream.Collector) 
-     * @see #groupingBy(com.annimon.stream.function.Function, com.annimon.stream.Collector, com.annimon.stream.function.Supplier) 
+     * @see #groupingBy(com.landawn.abacus.util.function.Function, com.annimon.stream.Collector) 
+     * @see #groupingBy(com.landawn.abacus.util.function.Function, com.annimon.stream.Collector, com.landawn.abacus.util.function.Supplier) 
      */
     public static <T, K> Collector<T, ?, Map<K, List<T>>> groupingBy(Function<? super T, ? extends K> classifier) {
         return groupingBy(classifier, Collectors.<T> toList());
@@ -667,8 +668,8 @@ public final class Collectors {
      * @param classifier  the classifier function 
      * @param downstream  the collector of mapped elements
      * @return a {@code Collector}
-     * @see #groupingBy(com.annimon.stream.function.Function) 
-     * @see #groupingBy(com.annimon.stream.function.Function, com.annimon.stream.Collector, com.annimon.stream.function.Supplier) 
+     * @see #groupingBy(com.landawn.abacus.util.function.Function) 
+     * @see #groupingBy(com.landawn.abacus.util.function.Function, com.annimon.stream.Collector, com.landawn.abacus.util.function.Supplier) 
      */
     public static <T, K, A, D> Collector<T, ?, Map<K, D>> groupingBy(Function<? super T, ? extends K> classifier, Collector<? super T, A, D> downstream) {
         return Collectors.<T, K, D, A, Map<K, D>> groupingBy(classifier, downstream, Collectors.<K, D> hashMapSupplier());
@@ -686,8 +687,8 @@ public final class Collectors {
      * @param downstream  the collector of mapped elements
      * @param mapFactory  a supplier function that provides new {@code Map}
      * @return a {@code Collector}
-     * @see #groupingBy(com.annimon.stream.function.Function) 
-     * @see #groupingBy(com.annimon.stream.function.Function, com.annimon.stream.Collector) 
+     * @see #groupingBy(com.landawn.abacus.util.function.Function) 
+     * @see #groupingBy(com.landawn.abacus.util.function.Function, com.annimon.stream.Collector) 
      */
     public static <T, K, D, A, M extends Map<K, D>> Collector<T, ?, M> groupingBy(final Function<? super T, ? extends K> classifier,
             final Collector<? super T, A, D> downstream, final Supplier<M> mapFactory) {

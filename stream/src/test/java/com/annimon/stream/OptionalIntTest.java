@@ -12,9 +12,9 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import com.annimon.stream.function.IntConsumer;
-import com.annimon.stream.function.IntSupplier;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.IntConsumer;
+import com.landawn.abacus.util.function.IntSupplier;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * Tests for {@link OptionalInt}

@@ -12,9 +12,9 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import com.annimon.stream.function.DoubleConsumer;
-import com.annimon.stream.function.DoubleSupplier;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.DoubleConsumer;
+import com.landawn.abacus.util.function.DoubleSupplier;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * Tests for {@link OptionalDouble}

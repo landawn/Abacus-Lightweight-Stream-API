@@ -2,9 +2,9 @@ package com.annimon.stream;
 
 import java.util.NoSuchElementException;
 
-import com.annimon.stream.function.IntConsumer;
-import com.annimon.stream.function.IntSupplier;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.IntConsumer;
+import com.landawn.abacus.util.function.IntSupplier;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * A container object which may or may not contain a {@code int} value.

@@ -1,6 +1,6 @@
 package com.annimon.stream.operator;
 
-import com.annimon.stream.function.DoubleUnaryOperator;
+import com.landawn.abacus.util.function.DoubleUnaryOperator;
 import com.annimon.stream.iterator.PrimitiveIterator;
 
 public class DoubleMap extends PrimitiveIterator.OfDouble {

@@ -1,8 +1,8 @@
 package com.annimon.stream;
 
-import com.annimon.stream.function.DoubleConsumer;
-import com.annimon.stream.function.IntConsumer;
-import com.annimon.stream.function.LongConsumer;
+import com.landawn.abacus.util.function.DoubleConsumer;
+import com.landawn.abacus.util.function.IntConsumer;
+import com.landawn.abacus.util.function.LongConsumer;
 import java.security.SecureRandom;
 import java.util.Random;
 import org.junit.Test;

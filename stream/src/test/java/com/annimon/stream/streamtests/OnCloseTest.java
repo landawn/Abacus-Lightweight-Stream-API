@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import com.annimon.stream.IntStream;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.Predicate;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.Predicate;
 
 public class OnCloseTest {
 

@@ -2,10 +2,10 @@ package com.annimon.stream;
 
 import java.util.NoSuchElementException;
 
-import com.annimon.stream.function.Consumer;
-import com.annimon.stream.function.Function;
-import com.annimon.stream.function.Predicate;
-import com.annimon.stream.function.Supplier;
+import com.landawn.abacus.util.function.Consumer;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.Predicate;
+import com.landawn.abacus.util.function.Supplier;
 
 /**
  * A container object which may or may not contain a non-null value.

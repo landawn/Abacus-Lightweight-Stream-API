@@ -1,7 +1,7 @@
 package com.annimon.stream.longstreamtests;
 
 import com.annimon.stream.LongStream;
-import com.annimon.stream.function.LongBinaryOperator;
+import com.landawn.abacus.util.function.LongBinaryOperator;
 import org.junit.Test;
 import static com.annimon.stream.test.hamcrest.LongStreamMatcher.assertElements;
 import static com.annimon.stream.test.hamcrest.LongStreamMatcher.assertIsEmpty;

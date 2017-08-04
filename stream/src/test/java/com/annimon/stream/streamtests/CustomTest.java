@@ -14,8 +14,8 @@ import org.junit.Test;
 import com.annimon.stream.CustomOperators;
 import com.annimon.stream.IntStream;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.Consumer;
-import com.annimon.stream.function.Function;
+import com.landawn.abacus.util.function.Consumer;
+import com.landawn.abacus.util.function.Function;
 
 public final class CustomTest {
 
