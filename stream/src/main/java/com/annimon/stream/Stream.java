@@ -1349,6 +1349,7 @@ public class Stream<T> implements Closeable {
      * @return the result of collect elements
      * @see #collect(com.landawn.abacus.util.function.Supplier, com.landawn.abacus.util.function.BiConsumer)
      */
+    @SuppressWarnings("unchecked")
     public <R, A> R collect(Collector<? super T, A, R> collector) {
         A container = collector.supplier().get();
         while (iterator.hasNext()) {
