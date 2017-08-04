@@ -1,0 +1,14 @@
+/build/
+/dist/
+/proguard/
+/nbproject/private/
+/nbproject/cfg_hints.xml
+/.nb-gradle/
+/.gradle/
+/stream/target/
+/stream/build/
+/streamTest/target/
+/streamTest/build/
+/.idea/
+*.iml
+local.properties

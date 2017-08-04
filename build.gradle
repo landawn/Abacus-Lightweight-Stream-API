@@ -1,0 +1,46 @@
+// Plugins
+plugins {
+    id "net.saliman.cobertura" version "2.2.6"
+    id "com.github.kt3k.coveralls" version "2.8.1"
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'net.saliman.cobertura'
+    cobertura {
+        coverageFormats = ['html', 'xml']
+    }
+}
+
+cobertura {
+    coverageFormats = ['html', 'xml']
+    coverageExcludes = ['.*com\\.annimon\\.stream\\.internal\\.Compat.*', '.*com\\.annimon\\.stream\\.test\\.hamcrest\\.CommonMatcher.*']
+    coverageReportDatafile = file("build/cobertura/cobertura.ser")
+    coverageReportDir = file("build/reports/coverage")
+    coverageSourceDirs = subprojects.sourceSets.main.allSource.srcDirs.flatten()
+    coverageMergeDatafiles = subprojects.collect { file("${it.buildDir}/cobertura/cobertura.ser") }
+    coverageDirs = subprojects.collect { file("${it.buildDir}/classes/main") }
+}
+
+coveralls {
+    coberturaReportPath = "${rootProject.buildDir}/reports/coverage/coverage.xml"
+}
+
+test.dependsOn(rootProject.subprojects.collect { ":${it.name}:cobertura" })
+
+tasks.coveralls {
+    dependsOn coberturaReport
+}
+
+/*allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}*/
