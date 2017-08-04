@@ -4,18 +4,6 @@ import java.io.Closeable;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-import com.landawn.abacus.util.function.Function;
-import com.landawn.abacus.util.function.IntBinaryOperator;
-import com.landawn.abacus.util.function.IntConsumer;
-import com.landawn.abacus.util.function.IntFunction;
-import com.landawn.abacus.util.function.IntPredicate;
-import com.landawn.abacus.util.function.IntSupplier;
-import com.landawn.abacus.util.function.IntToDoubleFunction;
-import com.landawn.abacus.util.function.IntToLongFunction;
-import com.landawn.abacus.util.function.IntUnaryOperator;
-import com.landawn.abacus.util.function.ObjIntConsumer;
-import com.landawn.abacus.util.function.Supplier;
-import com.landawn.abacus.util.function.ToIntFunction;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
@@ -41,6 +29,20 @@ import com.annimon.stream.operator.IntSkip;
 import com.annimon.stream.operator.IntSorted;
 import com.annimon.stream.operator.IntTakeUntil;
 import com.annimon.stream.operator.IntTakeWhile;
+import com.landawn.abacus.util.OptionalDouble;
+import com.landawn.abacus.util.OptionalInt;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.IntBinaryOperator;
+import com.landawn.abacus.util.function.IntConsumer;
+import com.landawn.abacus.util.function.IntFunction;
+import com.landawn.abacus.util.function.IntPredicate;
+import com.landawn.abacus.util.function.IntSupplier;
+import com.landawn.abacus.util.function.IntToDoubleFunction;
+import com.landawn.abacus.util.function.IntToLongFunction;
+import com.landawn.abacus.util.function.IntUnaryOperator;
+import com.landawn.abacus.util.function.ObjIntConsumer;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToIntFunction;
 
 /**
  * A sequence of primitive int-valued elements supporting sequential operations. This is the {@code int}

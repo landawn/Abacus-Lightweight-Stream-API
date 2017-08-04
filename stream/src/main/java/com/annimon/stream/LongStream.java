@@ -5,18 +5,6 @@ import java.math.BigInteger;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-import com.landawn.abacus.util.function.Function;
-import com.landawn.abacus.util.function.LongBinaryOperator;
-import com.landawn.abacus.util.function.LongConsumer;
-import com.landawn.abacus.util.function.LongFunction;
-import com.landawn.abacus.util.function.LongPredicate;
-import com.landawn.abacus.util.function.LongSupplier;
-import com.landawn.abacus.util.function.LongToDoubleFunction;
-import com.landawn.abacus.util.function.LongToIntFunction;
-import com.landawn.abacus.util.function.LongUnaryOperator;
-import com.landawn.abacus.util.function.ObjLongConsumer;
-import com.landawn.abacus.util.function.Supplier;
-import com.landawn.abacus.util.function.ToLongFunction;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
@@ -41,6 +29,20 @@ import com.annimon.stream.operator.LongSkip;
 import com.annimon.stream.operator.LongSorted;
 import com.annimon.stream.operator.LongTakeUntil;
 import com.annimon.stream.operator.LongTakeWhile;
+import com.landawn.abacus.util.OptionalDouble;
+import com.landawn.abacus.util.OptionalLong;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.LongBinaryOperator;
+import com.landawn.abacus.util.function.LongConsumer;
+import com.landawn.abacus.util.function.LongFunction;
+import com.landawn.abacus.util.function.LongPredicate;
+import com.landawn.abacus.util.function.LongSupplier;
+import com.landawn.abacus.util.function.LongToDoubleFunction;
+import com.landawn.abacus.util.function.LongToIntFunction;
+import com.landawn.abacus.util.function.LongUnaryOperator;
+import com.landawn.abacus.util.function.ObjLongConsumer;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToLongFunction;
 
 /**
  * A sequence of {@code long}-valued elements supporting aggregate operations.

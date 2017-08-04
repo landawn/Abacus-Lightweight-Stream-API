@@ -3,18 +3,6 @@ package com.annimon.stream;
 import java.io.Closeable;
 import java.util.Comparator;
 
-import com.landawn.abacus.util.function.DoubleBinaryOperator;
-import com.landawn.abacus.util.function.DoubleConsumer;
-import com.landawn.abacus.util.function.DoubleFunction;
-import com.landawn.abacus.util.function.DoublePredicate;
-import com.landawn.abacus.util.function.DoubleSupplier;
-import com.landawn.abacus.util.function.DoubleToIntFunction;
-import com.landawn.abacus.util.function.DoubleToLongFunction;
-import com.landawn.abacus.util.function.DoubleUnaryOperator;
-import com.landawn.abacus.util.function.Function;
-import com.landawn.abacus.util.function.ObjDoubleConsumer;
-import com.landawn.abacus.util.function.Supplier;
-import com.landawn.abacus.util.function.ToDoubleFunction;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
@@ -38,6 +26,19 @@ import com.annimon.stream.operator.DoubleSkip;
 import com.annimon.stream.operator.DoubleSorted;
 import com.annimon.stream.operator.DoubleTakeUntil;
 import com.annimon.stream.operator.DoubleTakeWhile;
+import com.landawn.abacus.util.OptionalDouble;
+import com.landawn.abacus.util.function.DoubleBinaryOperator;
+import com.landawn.abacus.util.function.DoubleConsumer;
+import com.landawn.abacus.util.function.DoubleFunction;
+import com.landawn.abacus.util.function.DoublePredicate;
+import com.landawn.abacus.util.function.DoubleSupplier;
+import com.landawn.abacus.util.function.DoubleToIntFunction;
+import com.landawn.abacus.util.function.DoubleToLongFunction;
+import com.landawn.abacus.util.function.DoubleUnaryOperator;
+import com.landawn.abacus.util.function.Function;
+import com.landawn.abacus.util.function.ObjDoubleConsumer;
+import com.landawn.abacus.util.function.Supplier;
+import com.landawn.abacus.util.function.ToDoubleFunction;
 
 /**
  * A sequence of {@code double}-valued elements supporting aggregate operations.
