@@ -1,11 +1,11 @@
-Lightweight-Stream-API
+Abacus-Lightweight-Stream-API
 ======================
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.landawn/stream-lite.svg)](https://maven-badges.herokuapp.com/maven-central/com.landawn/stream-lite/)
-[![Javadocs](https://www.javadoc.io/badge/com.landawn/stream-lite.svg)](https://www.javadoc.io/doc/com.landawn/stream-lite)
-Stream API from Java 8 rewritten on iterators for Java 7 and Android.
+[![Maven Central](https://img.shields.io/maven-central/v/com.landawn/abacus-stream-lite.svg)](https://maven-badges.herokuapp.com/maven-central/com.landawn/abacus-stream-lite/)
+[![Javadocs](https://www.javadoc.io/badge/com.landawn/abacus-stream-lite.svg)](https://www.javadoc.io/doc/com.landawn/abacus-stream-lite)
+Shared the function interfaces with [Abacus-Util](https://github.com/landawn/AbacusUtil)
 
-Full API documentation is available [here](https://www.javadoc.io/doc/com.landawn/stream-lite).
+Full API documentation is available [here](https://www.javadoc.io/doc/com.landawn/abacus-stream-lite).
 
 ### Includes
 
@@ -124,14 +124,14 @@ In addition to backported Java 8 Stream operators, the library provides:
 
 ## Download
 
-Releases are available in [Maven Central](https://repo1.maven.org/maven2/com/landawn/stream-lite/)
+Releases are available in [Maven Central](https://repo1.maven.org/maven2/com/landawn/abacus-stream-lite/)
 
 Maven:
 
 ```xml
 <dependency>
   <groupId>com.landawn</groupId>
-  <artifactId>stream-lite</artifactId>
+  <artifactId>abacus-stream-lite</artifactId>
   <version>0.8.1</version>
 </dependency>
 ```
@@ -140,7 +140,7 @@ or Gradle:
 ```groovy
 dependencies {
   ...
-  compile 'com.landawn:stream-lite:0.8.1'
+  compile 'com.landawn:abacus-stream-lite:0.8.1'
   ...
 }
 ```
