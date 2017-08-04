@@ -5,7 +5,7 @@
 2, copy settings-security.xml and settings.xml to folder: C:\Users\haiyangl\.m2\ 
 
 3, Deploy and Release:
-	mvn clean deploy -f stream-lite-0.8.pom
+	mvn clean deploy -f abacus-stream-lite-0.8.pom
 	
 ######## Method 2 ############################################
 
@@ -20,11 +20,11 @@
 5, public repository: https://oss.sonatype.org/content/groups/public/com/landawn
 	
 ======================abacus-util=======================================
-mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=ossrh -DpomFile=stream-lite-0.8.pom -Dfile=stream-lite-0.8.jar
-mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=ossrh -DpomFile=stream-lite-0.8.pom -Dfile=stream-lite-0.8-javadoc.jar
-mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=ossrh -DpomFile=stream-lite-0.8.pom -Dfile=stream-lite-0.8-sources.jar
+mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=ossrh -DpomFile=abacus-stream-lite-0.8.pom -Dfile=abacus-stream-lite-0.8.jar
+mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=ossrh -DpomFile=abacus-stream-lite-0.8.pom -Dfile=abacus-stream-lite-0.8-javadoc.jar
+mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=ossrh -DpomFile=abacus-stream-lite-0.8.pom -Dfile=abacus-stream-lite-0.8-sources.jar
 
-jar -cvf stream-lite-0.8-bundle.jar stream-lite-0.8.pom stream-lite-0.8.pom.asc stream-lite-0.8.jar stream-lite-0.8.jar.asc stream-lite-0.8-javadoc.jar stream-lite-0.8-javadoc.jar.asc stream-lite-0.8-sources.jar stream-lite-0.8-sources.jar.asc
+jar -cvf abacus-stream-lite-0.8-bundle.jar abacus-stream-lite-0.8.pom abacus-stream-lite-0.8.pom.asc abacus-stream-lite-0.8.jar abacus-stream-lite-0.8.jar.asc abacus-stream-lite-0.8-javadoc.jar abacus-stream-lite-0.8-javadoc.jar.asc abacus-stream-lite-0.8-sources.jar abacus-stream-lite-0.8-sources.jar.asc
 
 
 PWD: Lhy***?11, Lhy***?12

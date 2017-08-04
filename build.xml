@@ -1,6 +1,6 @@
 <!-- StreamEx ant built script -->
 
-<project name="stream-lite" default="jar" basedir=".">
+<project name="abacus-stream-lite" default="jar" basedir=".">
 
 	<!-- Give user a chance to override without editing this file
        (and without typing -D each time it compiles it) -->

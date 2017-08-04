@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.landawn</groupId>
-	<artifactId>stream-lite</artifactId>
+	<artifactId>abacus-stream-lite</artifactId>
 	<version>0.8</version>
 	<packaging>jar</packaging>
-	<name>stream-lite</name>
+	<name>abacus-stream-lite</name>
 	<description>Enhancing Java 8 Streams</description>
-	<url>https://github.com/landawn/Lightweight-Stream-API</url>
+	<url>https://github.com/landawn/Abacus-Lightweight-Stream-API</url>
 
 	<licenses>
 		<license>
@@ -25,9 +25,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:https://github.com/landawn/Lightweight-Stream-API.git</connection>
-		<developerConnection>scm:git:https://github.com/landawn/Lightweight-Stream-API.git</developerConnection>
-		<url>https://github.com/landawn/Lightweight-Stream-API</url>
+		<connection>scm:git:https://github.com/landawn/Abacus-Lightweight-Stream-API.git</connection>
+		<developerConnection>scm:git:https://github.com/landawn/Abacus-Lightweight-Stream-API.git</developerConnection>
+		<url>https://github.com/landawn/Abacus-Lightweight-Stream-API</url>
 	</scm>
 
 	<distributionManagement>
