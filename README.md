@@ -3,9 +3,8 @@ Abacus-Lightweight-Stream-API
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.landawn/abacus-stream-lite.svg)](https://maven-badges.herokuapp.com/maven-central/com.landawn/abacus-stream-lite/)
 [![Javadocs](https://www.javadoc.io/badge/com.landawn/abacus-stream-lite.svg)](https://www.javadoc.io/doc/com.landawn/abacus-stream-lite)
-Shared the function interfaces with [Abacus-Util](https://github.com/landawn/AbacusUtil)
 
-Full API documentation is available [here](https://www.javadoc.io/doc/com.landawn/abacus-stream-lite).
+Shared the function interfaces with [Abacus-Util](https://github.com/landawn/AbacusUtil). Full API documentation is available [here](https://www.javadoc.io/doc/com.landawn/abacus-stream-lite).
 
 ### Includes
 
