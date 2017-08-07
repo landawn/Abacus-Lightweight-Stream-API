@@ -8,5 +8,5 @@
 	<classpathentry kind="lib" path="lib/mockito-core-2.8.47.jar"/>
 	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
 	<classpathentry kind="lib" path="lib/abacus-android-se-jdk7-0.9.77.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="build/classes"/>
 </classpath>
