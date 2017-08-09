@@ -54,7 +54,17 @@ public final class IntStream implements Closeable {
     /**
      * Single instance for empty stream. It is safe for multi-thread environment because it has no content.
      */
-    private static final IntStream EMPTY = of(new int[0]);
+    private static final IntStream EMPTY = new IntStream(new PrimitiveIterator.OfInt() {
+        @Override
+        public int nextInt() {
+            return 0;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+    });
 
     /**
      * Returns an empty stream.
@@ -73,10 +83,10 @@ public final class IntStream implements Closeable {
      * @throws NullPointerException if {@code values} is null
      */
     public static IntStream of(final int... values) {
-        N.requireNonNull(values);
-        if (values.length == 0) {
+        if (values == null || values.length == 0) {
             return IntStream.empty();
         }
+
         return new IntStream(new IntArray(values));
     }
 

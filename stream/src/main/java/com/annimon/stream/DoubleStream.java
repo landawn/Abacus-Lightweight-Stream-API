@@ -52,7 +52,18 @@ public final class DoubleStream implements Closeable {
     /**
      * Single instance for empty stream. It is safe for multi-thread environment because it has no content.
      */
-    private static final DoubleStream EMPTY = of(new double[0]);
+    private static final DoubleStream EMPTY = new DoubleStream(new PrimitiveIterator.OfDouble() {
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public double nextDouble() {
+            return 0d;
+        }
+    });
 
     /**
      * Returns an empty stream.
@@ -71,10 +82,10 @@ public final class DoubleStream implements Closeable {
      * @throws NullPointerException if {@code values} is null
      */
     public static DoubleStream of(final double... values) {
-        N.requireNonNull(values);
-        if (values.length == 0) {
+        if (values == null || values.length == 0) {
             return DoubleStream.empty();
         }
+
         return new DoubleStream(new DoubleArray(values));
     }
 
