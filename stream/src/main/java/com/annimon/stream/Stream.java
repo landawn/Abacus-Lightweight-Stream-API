@@ -4,6 +4,7 @@ import java.io.Closeable;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -73,7 +74,7 @@ public class Stream<T> implements Closeable {
     static final Object NONE = new Object();
 
     @SuppressWarnings({ "rawtypes" })
-    static final Stream EMPTY = of(new Object[0]);
+    private static final Stream EMPTY = new Stream<>(Collections.emptyList());
 
     /**
      * Returns an empty stream.
