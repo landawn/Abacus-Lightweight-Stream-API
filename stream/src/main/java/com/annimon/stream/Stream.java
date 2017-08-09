@@ -1555,6 +1555,10 @@ public class Stream<T> implements Closeable {
         return function.apply(this);
     }
 
+    public void println() {
+        System.out.println(toList());
+    }
+
     /**
      * Adds close handler to the current stream.
      *

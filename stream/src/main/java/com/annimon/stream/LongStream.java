@@ -1090,6 +1090,10 @@ public final class LongStream implements Closeable {
         return function.apply(this);
     }
 
+    public void println() {
+        boxed().println();
+    }
+
     /**
      * Adds close handler to the current stream.
      *
