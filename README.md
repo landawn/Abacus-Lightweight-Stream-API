@@ -131,7 +131,7 @@ Maven:
 <dependency>
   <groupId>com.landawn</groupId>
   <artifactId>abacus-stream-lite</artifactId>
-  <version>0.8.1</version>
+  <version>0.8.2</version>
 </dependency>
 ```
 or Gradle:
@@ -139,7 +139,7 @@ or Gradle:
 ```groovy
 dependencies {
   ...
-  compile 'com.landawn:abacus-stream-lite:0.8.1'
+  compile 'com.landawn:abacus-stream-lite:0.8.2'
   ...
 }
 ```
