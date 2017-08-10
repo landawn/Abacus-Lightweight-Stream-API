@@ -3,6 +3,7 @@ package com.annimon.stream;
 import java.io.Closeable;
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -245,7 +246,7 @@ public class Stream<T> implements Closeable {
      * @return the new concatenated stream
      * @throws NullPointerException if {@code stream1} or {@code stream2} is null
      */
-    public static <T> Stream<T> concat(Stream<? extends T> stream1, Stream<? extends T> stream2) {
+    public static <T> Stream<T> concat(final Stream<? extends T> stream1, final Stream<? extends T> stream2) {
         N.requireNonNull(stream1);
         N.requireNonNull(stream2);
         @SuppressWarnings("resource")
@@ -270,10 +271,19 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code iterator1} or {@code iterator2} is null
      * @since 1.1.9
      */
-    public static <T> Stream<T> concat(Iterator<? extends T> iterator1, Iterator<? extends T> iterator2) {
+    public static <T> Stream<T> concat(final Iterator<? extends T> iterator1, final Iterator<? extends T> iterator2) {
         N.requireNonNull(iterator1);
         N.requireNonNull(iterator2);
         return new Stream<>(new ObjConcat<>(iterator1, iterator2));
+    }
+
+    public static <T> Stream<T> concat(final Collection<? extends T> c1, final Collection<? extends T> c2) {
+        return concat(c1 == null ? Collections.<T> emptyIterator() : c1.iterator(), c2 == null ? Collections.<T> emptyIterator() : c2.iterator());
+    }
+
+    public static <T> Stream<T> concat(final T[] a, final T[] b) {
+        return concat(a == null ? Collections.<T> emptyIterator() : Arrays.asList(a).iterator(),
+                b == null ? Collections.<T> emptyIterator() : Arrays.asList(b).iterator());
     }
 
     /**
@@ -296,7 +306,7 @@ public class Stream<T> implements Closeable {
      * @return the new stream
      * @throws NullPointerException if {@code stream1} or {@code stream2} is null
      */
-    public static <F, S, R> Stream<R> zip(Stream<? extends F> stream1, Stream<? extends S> stream2,
+    public static <F, S, R> Stream<R> zip(final Stream<? extends F> stream1, final Stream<? extends S> stream2,
             final BiFunction<? super F, ? super S, ? extends R> combiner) {
         N.requireNonNull(stream1);
         N.requireNonNull(stream2);
@@ -331,6 +341,16 @@ public class Stream<T> implements Closeable {
         return new Stream<>(new ObjZip<>(iterator1, iterator2, combiner));
     }
 
+    public static <F, S, R> Stream<R> zip(final Collection<? extends F> c1, final Collection<? extends S> c2,
+            final BiFunction<? super F, ? super S, ? extends R> combiner) {
+        return zip(c1 == null ? Collections.<F> emptyIterator() : c1.iterator(), c2 == null ? Collections.<S> emptyIterator() : c2.iterator(), combiner);
+    }
+
+    public static <F, S, R> Stream<R> zip(final F[] a, final S[] b, final BiFunction<? super F, ? super S, ? extends R> combiner) {
+        return zip(a == null ? Collections.<F> emptyIterator() : Arrays.asList(a).iterator(),
+                b == null ? Collections.<S> emptyIterator() : Arrays.asList(b).iterator(), combiner);
+    }
+
     /**
      * Merges elements of two streams according to the supplied selector function.
      *
@@ -358,8 +378,8 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code stream1} or {@code stream2} is null
      * @since 1.1.9
      */
-    public static <T> Stream<T> merge(Stream<? extends T> stream1, Stream<? extends T> stream2,
-            BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
+    public static <T> Stream<T> merge(final Stream<? extends T> stream1, final Stream<? extends T> stream2,
+            final BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
         N.requireNonNull(stream1);
         N.requireNonNull(stream2);
         return Stream.<T> merge(stream1.iterator, stream2.iterator, selector);
@@ -392,11 +412,21 @@ public class Stream<T> implements Closeable {
      * @throws NullPointerException if {@code iterator1} or {@code iterator2} is null
      * @since 1.1.9
      */
-    public static <T> Stream<T> merge(Iterator<? extends T> iterator1, Iterator<? extends T> iterator2,
-            BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
+    public static <T> Stream<T> merge(final Iterator<? extends T> iterator1, final Iterator<? extends T> iterator2,
+            final BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
         N.requireNonNull(iterator1);
         N.requireNonNull(iterator2);
         return new Stream<>(new ObjMerge<>(iterator1, iterator2, selector));
+    }
+
+    public static <T> Stream<T> merge(final Collection<? extends T> c1, final Collection<? extends T> c2,
+            final BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
+        return merge(c1 == null ? Collections.<T> emptyIterator() : c1.iterator(), c2 == null ? Collections.<T> emptyIterator() : c2.iterator(), selector);
+    }
+
+    public static <T> Stream<T> merge(final T[] a, final T[] b, final BiFunction<? super T, ? super T, ObjMerge.MergeResult> selector) {
+        return merge(a == null ? Collections.<T> emptyIterator() : Arrays.asList(a).iterator(),
+                b == null ? Collections.<T> emptyIterator() : Arrays.asList(b).iterator(), selector);
     }
 
     //<editor-fold defaultstate="collapsed" desc="Implementation">
