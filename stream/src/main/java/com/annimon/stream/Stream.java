@@ -1515,6 +1515,19 @@ public class Stream<T> implements Closeable {
      * 
      * @param keyMapper
      * @param valueMapper
+     * @param mergeFunction
+     * @return
+     * @see Collectors#toMap(Function, Function, BinaryOperator)
+     */
+    public <K, V> Map<K, V> toMap(final Function<? super T, ? extends K> keyMapper, final Function<? super T, ? extends V> valueMapper,
+            final BinaryOperator<V> mergeFunction) {
+        return collect(Collectors.toMap(keyMapper, valueMapper, mergeFunction));
+    }
+
+    /**
+     * 
+     * @param keyMapper
+     * @param valueMapper
      * @param mapFactory
      * @return
      * @see Collectors#toMap(Function, Function, Supplier)
@@ -1522,6 +1535,20 @@ public class Stream<T> implements Closeable {
     public <K, V, M extends Map<K, V>> M toMap(final Function<? super T, ? extends K> keyMapper, final Function<? super T, ? extends V> valueMapper,
             final Supplier<M> mapFactory) {
         return collect(Collectors.toMap(keyMapper, valueMapper, mapFactory));
+    }
+
+    /**
+     * 
+     * @param keyMapper
+     * @param valueMapper
+     * @param mergeFunction
+     * @param mapFactory
+     * @return
+     * @see Collectors#toMap(Function, Function, BinaryOperator, Supplier)
+     */
+    public <K, V, M extends Map<K, V>> M toMap(Function<? super T, ? extends K> keyMapper, Function<? super T, ? extends V> valueMapper,
+            BinaryOperator<V> mergeFunction, Supplier<M> mapFactory) {
+        return collect(Collectors.toMap(keyMapper, valueMapper, mergeFunction, mapFactory));
     }
 
     /**
