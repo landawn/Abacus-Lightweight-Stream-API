@@ -1555,6 +1555,26 @@ public class Stream<T> implements Closeable {
         return function.apply(this);
     }
 
+    /**
+     * Returns a stream consisting of the elements of this stream which are
+     * instances of given class.
+     *
+     * <p>This is an intermediate operation.
+     *
+     * @param <TT> a type of instances to select.
+     * @param clazz a class which instances should be selected
+     * @return the new stream of type passed as parameter
+     */
+    @SuppressWarnings("unchecked")
+    public <TT> Stream<TT> select(final Class<TT> clazz) {
+        return (Stream<TT>) filter(new Predicate<T>() {
+            @Override
+            public boolean test(T value) {
+                return clazz.isInstance(value);
+            }
+        });
+    }
+
     public void println() {
         System.out.println(toList());
     }
