@@ -116,7 +116,7 @@ public final class EntryStream<K, V> {
 
         final Function<Map.Entry<K, V>, Map.Entry<K, V>> mapper = Fn.identity();
 
-        return Stream.zip(Stream.of(keys), Stream.of(values), zipFunction).mapToEntry(mapper);
+        return Stream.zip(keys, values, zipFunction).mapToEntry(mapper);
     }
 
     public static <K, V> EntryStream<K, V> zip(final Collection<? extends K> keys, final Collection<? extends V> values) {
@@ -129,7 +129,7 @@ public final class EntryStream<K, V> {
 
         final Function<Map.Entry<K, V>, Map.Entry<K, V>> mapper = Fn.identity();
 
-        return Stream.zip(Stream.of(keys), Stream.of(values), zipFunction).mapToEntry(mapper);
+        return Stream.zip(keys, values, zipFunction).mapToEntry(mapper);
     }
 
     public Stream<K> keys() {
