@@ -8,6 +8,7 @@ import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
 import com.annimon.stream.iterator.PrimitiveIterator;
+import com.annimon.stream.iterator.PrimitiveIterator.OfInt;
 import com.annimon.stream.operator.IntArray;
 import com.annimon.stream.operator.IntCodePoints;
 import com.annimon.stream.operator.IntConcat;
@@ -312,7 +313,7 @@ public final class IntStream implements Closeable {
     }
 
     public static IntStream concat(final int[] a, final int[] b) {
-        return concat(IntStream.of(a), IntStream.of(b));
+        return new IntStream(new IntConcat(OfInt.of(a), OfInt.of(b)));
     }
 
     private final PrimitiveIterator.OfInt iterator;

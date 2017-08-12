@@ -9,6 +9,7 @@ import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
 import com.annimon.stream.iterator.PrimitiveIterator;
+import com.annimon.stream.iterator.PrimitiveIterator.OfLong;
 import com.annimon.stream.operator.LongArray;
 import com.annimon.stream.operator.LongConcat;
 import com.annimon.stream.operator.LongDropWhile;
@@ -316,7 +317,7 @@ public final class LongStream implements Closeable {
     }
 
     public static LongStream concat(final long[] a, final long[] b) {
-        return concat(LongStream.of(a), LongStream.of(b));
+        return new LongStream(new LongConcat(OfLong.of(a), OfLong.of(b)));
     }
 
     private final PrimitiveIterator.OfLong iterator;

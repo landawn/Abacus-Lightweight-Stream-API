@@ -6,6 +6,7 @@ import java.util.Comparator;
 import com.annimon.stream.internal.Compose;
 import com.annimon.stream.internal.Operators;
 import com.annimon.stream.internal.Params;
+import com.annimon.stream.iterator.PrimitiveExtIterator.OfDouble;
 import com.annimon.stream.iterator.PrimitiveIterator;
 import com.annimon.stream.operator.DoubleArray;
 import com.annimon.stream.operator.DoubleConcat;
@@ -188,7 +189,7 @@ public final class DoubleStream implements Closeable {
     }
 
     public static DoubleStream concat(final double[] a, final double[] b) {
-        return concat(DoubleStream.of(a), DoubleStream.of(b));
+        return new DoubleStream(new DoubleConcat(OfDouble.of(a), OfDouble.of(b)));
     }
 
     private final PrimitiveIterator.OfDouble iterator;
