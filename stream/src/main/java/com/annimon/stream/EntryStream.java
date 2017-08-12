@@ -45,7 +45,7 @@ import com.landawn.abacus.util.stream.Collectors;
  */
 public final class EntryStream<K, V> {
 
-    static final Function<Map<Object, Object>, Stream<Map.Entry<Object, Object>>> mapper_func = new Function<Map<Object, Object>, Stream<Map.Entry<Object, Object>>>() {
+    private static final Function<Map<Object, Object>, Stream<Map.Entry<Object, Object>>> mapper_func = new Function<Map<Object, Object>, Stream<Map.Entry<Object, Object>>>() {
         @Override
         public Stream<Map.Entry<Object, Object>> apply(Map<Object, Object> t) {
             return Stream.of(t);
