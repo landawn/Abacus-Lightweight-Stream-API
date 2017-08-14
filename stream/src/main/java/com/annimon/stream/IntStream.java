@@ -1101,9 +1101,8 @@ public final class IntStream implements Closeable {
      * @see Stream#chain(com.landawn.abacus.util.function.Function)
      * @throws NullPointerException if {@code function} is null
      */
-    public <R> R chain(final Function<IntStream, R> function) {
-        N.requireNonNull(function);
-        return function.apply(this);
+    public <R> R __(Function<? super IntStream, R> transfer) {
+        return transfer.apply(this);
     }
 
     public void println() {

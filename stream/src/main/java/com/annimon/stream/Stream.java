@@ -1607,9 +1607,8 @@ public class Stream<T> implements Closeable {
      * @return a result of the transforming function
      * @throws NullPointerException if {@code function} is null
      */
-    public <R> R chain(Function<Stream<T>, R> function) {
-        N.requireNonNull(function);
-        return function.apply(this);
+    public <R> R __(Function<? super Stream<T>, R> transfer) {
+        return transfer.apply(this);
     }
 
     /**

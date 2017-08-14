@@ -525,6 +525,10 @@ public final class EntryStream<K, V> {
         return of(transfer.apply(s));
     }
 
+    public <R> R __(Function<? super EntryStream<K, V>, R> transfer) {
+        return transfer.apply(this);
+    }
+
     public void println() {
         s.println();
     }
