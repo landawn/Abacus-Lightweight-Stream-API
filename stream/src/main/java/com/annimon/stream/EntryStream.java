@@ -15,6 +15,7 @@
 
 package com.annimon.stream;
 
+import java.io.Closeable;
 import java.util.AbstractMap;
 import java.util.Collection;
 import java.util.Comparator;
@@ -43,7 +44,7 @@ import com.landawn.abacus.util.stream.Collectors;
  * 
  * @author Haiyang Li
  */
-public final class EntryStream<K, V> {
+public final class EntryStream<K, V> implements Closeable {
 
     private static final Function<Map<Object, Object>, Stream<Map.Entry<Object, Object>>> mapper_func = new Function<Map<Object, Object>, Stream<Map.Entry<Object, Object>>>() {
         @Override
@@ -537,6 +538,7 @@ public final class EntryStream<K, V> {
         return of(s.onClose(closeHandler));
     }
 
+    @Override
     public void close() {
         s.close();
     }
