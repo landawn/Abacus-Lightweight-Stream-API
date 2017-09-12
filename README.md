@@ -8,10 +8,7 @@ Stream API from Java 8 rewritten on iterators for Java 7 and Android - Shared fu
 
 ### Includes
 
- + Functional interfaces (`Supplier`, `Function`, `Consumer` etc);
- + `Stream`/`IntStream`/`LongStream`/`DoubleStream` (without parallel processing, but with a variety of additional methods and with custom operators);
- + `Optional`/`OptionalBoolean`/`OptionalInt`/`OptionalLong`/`OptionalDouble` classes;
- + `Fn` and `Comparators`
+ + Very light and simple Stream APIs: `Stream`/`EntryStream`/`IntStream`/`LongStream`/`DoubleStream` (without parallel processing, but with a variety of additional methods and with custom operators);
 
 ### Usage
 
