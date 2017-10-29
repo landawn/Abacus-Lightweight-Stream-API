@@ -74,12 +74,4 @@
 		</plugins>
 	</build>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.landawn</groupId>
-			<artifactId>abacus-android-se-jdk7</artifactId>
-			<version>0.9.78</version>
-		</dependency>
-	</dependencies>
-
 </project>
